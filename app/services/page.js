@@ -30,36 +30,6 @@ const guides = [
   },
 ]
 
-const sessions = [
-  {
-    emoji: '🎯',
-    title: 'AI Starter Session',
-    price: '$79',
-    duration: '60 min',
-    description: 'We pick the 3 AI tools that make most sense for your life and set them up together. You leave with everything configured and knowing exactly how to use it.',
-    features: ['Personalised tool selection','Live setup and walkthrough','Follow-up summary email','Recorded session (optional)'],
-    buyUrl: 'https://buy.stripe.com/dRm7sKbpH1PoaFY5vQfjG03',
-  },
-  {
-    emoji: '🎸',
-    title: 'AI for Musicians Session',
-    price: '$99',
-    duration: '60 min',
-    description: 'Built for musicians. We explore AI tools for composition, production, learning, and creativity -- tailored to your instrument and workflow.',
-    features: ['Music AI tool overview','DAW and production AI setup','AI learning tools for your instrument','Curated tool list to take away'],
-    highlight: true,
-    buyUrl: 'https://buy.stripe.com/00w6oG3XfbpYaFY4rMfjG04',
-  },
-  {
-    emoji: '🏠',
-    title: 'AI Home Setup',
-    price: '$129',
-    duration: '90 min',
-    description: 'Smart home AI, devices, and routines set up properly. From voice assistants to home automation, we get everything working together.',
-    features: ['Smart home AI audit','Device and routine setup','Privacy and security walkthrough','Written guide for your setup'],
-    buyUrl: 'https://buy.stripe.com/eVqfZgfFXbpY01kaQafjG05',
-  },
-]
 
 export default function Services() {
   return (
@@ -92,14 +62,7 @@ export default function Services() {
         ))}
       </div>
 
-      <div className="rounded-2xl border border-dashed border-stone-300 bg-stone-50 p-12 text-center mb-12">
-        <div className="text-4xl mb-4">🗓️</div>
-        <h2 className="text-xl font-bold text-stone-700 mb-2">1:1 Sessions — Coming Soon</h2>
-        <p className="text-stone-400 text-sm max-w-sm mx-auto">Personalised AI setup sessions are in the works. Drop your email below and I'll let you know when they're available.</p>
-        <a href="/contact" className="inline-block mt-6 bg-stone-900 text-white py-2 px-6 rounded-full font-semibold text-sm hover:bg-stone-700 transition-colors">
-          Get notified
-        </a>
-      </div>
+
     </div>
   )
 }
