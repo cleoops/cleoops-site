@@ -31,7 +31,7 @@ export default function Home() {
           {/* Hero image -- mixing desk with AI overlay */}
           <div className="relative rounded-3xl overflow-hidden aspect-square shadow-2xl">
             <Image
-              src="/hero-mixer.jpg"
+              src="/images/hero.jpg"
               alt="Music production with AI"
               fill
               className="object-cover"
@@ -97,15 +97,15 @@ export default function Home() {
           <p className="text-stone-500 text-center mb-14 max-w-xl mx-auto">I help everyday people — musicians, home users, hobbyists, curious minds — actually get value from AI tools instead of just being confused by them.</p>
           <div className="grid sm:grid-cols-3 gap-8">
             <div className="group">
-              <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-8 mb-4 aspect-video flex items-center justify-center border border-amber-100 group-hover:border-brand-300 transition-colors">
-                <span className="text-6xl">🎯</span>
+              <div className="rounded-2xl mb-4 overflow-hidden aspect-video relative border border-stone-100">
+                <Image src="/images/setup-session.jpg" alt="Personal AI Setup" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
               </div>
               <h3 className="font-semibold text-stone-900 text-lg mb-2">Personal AI Setup</h3>
               <p className="text-stone-500 text-sm leading-relaxed">One-on-one sessions where we set up the right AI tools for your life. You leave knowing exactly what to use and how.</p>
             </div>
             <div className="group">
-              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 mb-4 aspect-video flex items-center justify-center border border-purple-100 group-hover:border-brand-300 transition-colors">
-                <span className="text-6xl">🎸</span>
+              <div className="rounded-2xl mb-4 overflow-hidden aspect-video relative border border-stone-100">
+                <Image src="/images/music-guide.jpg" alt="AI for Musicians" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
               </div>
               <h3 className="font-semibold text-stone-900 text-lg mb-2">AI for Musicians</h3>
               <p className="text-stone-500 text-sm leading-relaxed">Guides and sessions for guitarists, producers, and music lovers. AI can transform how you create — I'll show you how.</p>
