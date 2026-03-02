@@ -92,34 +92,14 @@ export default function Services() {
         ))}
       </div>
 
-      <div className="flex items-center justify-between mb-8">
-        <h2 className="text-2xl font-bold text-stone-900">1:1 Sessions</h2>
-        <span className="text-sm text-stone-400">From $79 -- live, personal, practical</span>
+      <div className="rounded-2xl border border-dashed border-stone-300 bg-stone-50 p-12 text-center mb-12">
+        <div className="text-4xl mb-4">🗓️</div>
+        <h2 className="text-xl font-bold text-stone-700 mb-2">1:1 Sessions — Coming Soon</h2>
+        <p className="text-stone-400 text-sm max-w-sm mx-auto">Personalised AI setup sessions are in the works. Drop your email below and I'll let you know when they're available.</p>
+        <a href="/contact" className="inline-block mt-6 bg-stone-900 text-white py-2 px-6 rounded-full font-semibold text-sm hover:bg-stone-700 transition-colors">
+          Get notified
+        </a>
       </div>
-      <div className="grid sm:grid-cols-3 gap-6 mb-12">
-        {sessions.map((s) => (
-          <div key={s.title} className={`rounded-2xl p-8 border ${s.highlight ? 'border-brand-400 bg-brand-50' : 'border-stone-200 bg-white'} hover:border-brand-400 transition-colors`}>
-            <div className="text-3xl mb-4">{s.emoji}</div>
-            <div className="flex items-center gap-2 mb-1">
-              <span className="text-2xl font-bold text-brand-500">{s.price}</span>
-              <span className="text-stone-400 text-sm">{s.duration}</span>
-            </div>
-            <h3 className="font-semibold text-stone-900 text-lg mb-3">{s.title}</h3>
-            <p className="text-stone-500 text-sm leading-relaxed mb-6">{s.description}</p>
-            <ul className="space-y-2 mb-8">
-              {s.features.map(f => (
-                <li key={f} className="text-sm text-stone-600 flex items-start gap-2">
-                  <span className="text-brand-500 mt-0.5">✓</span>{f}
-                </li>
-              ))}
-            </ul>
-            <a href={s.buyUrl} target="_blank" rel="noopener noreferrer" className={`block text-center py-3 px-6 rounded-full font-semibold text-sm transition-colors ${s.highlight ? 'bg-brand-500 text-white hover:bg-brand-600' : 'bg-stone-900 text-white hover:bg-stone-700'}`}>
-              Book now
-            </a>
-          </div>
-        ))}
-      </div>
-      <p className="text-center text-stone-400 text-sm">Payments handled securely via Stripe. Sessions confirmed by email.</p>
     </div>
   )
 }
