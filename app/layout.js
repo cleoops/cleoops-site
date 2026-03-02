@@ -3,6 +3,10 @@ import './globals.css'
 export const metadata = {
   title: 'Cleo – AI for Everyone',
   description: 'Cleo helps everyday people get real value from AI tools. Simple, practical, no jargon.',
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
   openGraph: {
     title: 'Cleo – AI for Everyone',
     description: 'Cleo helps everyday people get real value from AI tools.',
