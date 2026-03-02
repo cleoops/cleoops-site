@@ -75,7 +75,7 @@ export default function Home() {
           <div className="hidden sm:block w-px h-10 bg-stone-700"></div>
           <div>
             <p className="text-3xl font-bold text-white">3</p>
-            <p className="text-stone-400 text-sm mt-1">Session types</p>
+            <p className="text-stone-400 text-sm mt-1">Guides available</p>
           </div>
           <div className="hidden sm:block w-px h-10 bg-stone-700"></div>
           <div>
@@ -100,8 +100,8 @@ export default function Home() {
               <div className="rounded-2xl mb-4 overflow-hidden aspect-video relative border border-stone-100">
                 <Image src="/images/setup-session.jpg" alt="Personal AI Setup" fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
               </div>
-              <h3 className="font-semibold text-stone-900 text-lg mb-2">Personal AI Setup</h3>
-              <p className="text-stone-500 text-sm leading-relaxed">One-on-one sessions where we set up the right AI tools for your life. You leave knowing exactly what to use and how.</p>
+              <h3 className="font-semibold text-stone-900 text-lg mb-2">AI Starter Guide</h3>
+              <p className="text-stone-500 text-sm leading-relaxed">The 8 AI tools that actually matter, with specific exercises to try today. No jargon, no fluff — just what works.</p>
             </div>
             <div className="group">
               <div className="rounded-2xl mb-4 overflow-hidden aspect-video relative border border-stone-100">
@@ -158,7 +158,7 @@ export default function Home() {
       <section className="bg-stone-900 text-white py-20 px-6">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to actually use AI?</h2>
-          <p className="text-stone-400 mb-8 text-lg">Start with a $9 guide or book a session. Either way, you'll come away knowing more than you did.</p>
+          <p className="text-stone-400 mb-8 text-lg">Start with a $9 guide. Practical, no jargon, yours to keep. You'll come away knowing more than you did.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="/services" className="inline-block bg-brand-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-brand-600 transition-colors">
               See all options
