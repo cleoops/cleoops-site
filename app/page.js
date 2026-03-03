@@ -5,12 +5,13 @@ export default function Home() {
     <div>
 
       {/* ── HERO ── */}
-      <section className="bg-stone-900 text-white pt-20 pb-0 px-6 overflow-hidden relative">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid sm:grid-cols-2 gap-12 items-end">
+      <section className="bg-stone-900 text-white overflow-hidden">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="grid sm:grid-cols-2 min-h-[640px]">
 
-            <div className="pb-20">
-              <div className="inline-flex items-center gap-2 bg-brand-500/20 text-brand-400 text-xs font-bold px-4 py-2 rounded-full mb-8 border border-brand-500/30 uppercase tracking-widest">
+            {/* Left: content — vertically centred */}
+            <div className="flex flex-col justify-center py-16 pr-8">
+              <div className="inline-flex items-center gap-2 bg-brand-500/20 text-brand-400 text-xs font-bold px-4 py-2 rounded-full mb-8 border border-brand-500/30 uppercase tracking-widest w-fit">
                 <span className="w-1.5 h-1.5 bg-brand-400 rounded-full animate-pulse"></span>
                 Instant PDF · Yours to keep
               </div>
@@ -42,11 +43,12 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Hero image — pushes into page edge */}
-            <div className="relative rounded-t-3xl overflow-hidden aspect-[4/3] shadow-2xl self-end">
+            {/* Right: image fills full column height, flush to edges */}
+            <div className="relative hidden sm:block">
               <Image src="/images/hero.jpg" alt="AI guides by Cleo" fill className="object-cover" priority />
-              <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 to-transparent"></div>
-              <div className="absolute bottom-5 left-5 right-5 space-y-2">
+              <div className="absolute inset-0 bg-gradient-to-t from-stone-900/50 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-l from-transparent to-stone-900/30"></div>
+              <div className="absolute bottom-8 left-6 right-6 space-y-2">
                 <div className="bg-white/95 backdrop-blur rounded-xl px-4 py-3 flex items-center gap-3 shadow-lg">
                   <span className="text-brand-500 text-lg font-bold">→</span>
                   <p className="text-sm font-semibold text-stone-800">Step 3: Click "Help me write" in Gmail</p>
@@ -57,6 +59,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>
