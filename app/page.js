@@ -48,12 +48,12 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 to-transparent"></div>
               <div className="absolute bottom-5 left-5 right-5 space-y-2">
                 <div className="bg-white/95 backdrop-blur rounded-xl px-4 py-3 flex items-center gap-3 shadow-lg">
-                  <span className="text-green-500 text-lg font-bold">✓</span>
-                  <p className="text-sm font-semibold text-stone-800">Exercise 1 complete — 44 to go</p>
+                  <span className="text-brand-500 text-lg font-bold">→</span>
+                  <p className="text-sm font-semibold text-stone-800">Step 3: Click "Help me write" in Gmail</p>
                 </div>
                 <div className="bg-white/95 backdrop-blur rounded-xl px-4 py-3 flex items-center justify-between shadow-lg">
-                  <span className="text-stone-500 text-xs">Time saved this week</span>
-                  <span className="text-sm font-bold text-brand-600">+2h 40min</span>
+                  <span className="text-stone-500 text-xs">Exercise 4 of 45 — AI Starter Guide</span>
+                  <span className="text-xs font-bold text-brand-600">2 min</span>
                 </div>
               </div>
             </div>
@@ -73,37 +73,36 @@ export default function Home() {
       </section>
 
       {/* ── THE PROBLEM ── */}
-      <section className="py-24 px-6 bg-white border-b border-stone-100">
+      <section className="py-16 px-6 bg-white border-b border-stone-100">
         <div className="max-w-3xl mx-auto text-center">
-          <div className="text-xs font-bold tracking-widest text-stone-400 uppercase mb-4">Sound familiar?</div>
+          <div className="text-xs font-bold tracking-widest text-stone-400 uppercase mb-3">Sound familiar?</div>
           <h2 className="text-4xl font-black text-stone-900 mb-8 leading-tight">
             You know AI is a big deal.<br />
             <span className="text-stone-400">You're just not sure what to do with it.</span>
           </h2>
-          <div className="grid sm:grid-cols-3 gap-6 mt-12 text-left">
+          <div className="grid sm:grid-cols-3 gap-4 text-left">
             {[
-              { emoji: '😅', label: 'You\'ve tried ChatGPT', body: 'Asked it a few questions, got some answers. Nodded along. Then went back to doing things the old way because it wasn\'t clear how it actually fit into your life.' },
-              { emoji: '📰', label: 'You\'ve read the articles', body: '"AI will change everything." Cool. But which tool should you open right now, and what should you actually type into it? The articles never say.' },
-              { emoji: '🤷', label: 'You\'re not sure what you\'re missing', body: 'Maybe you\'re already getting 80% of the value. Maybe you\'re getting 5%. Without a clear picture of what\'s possible, you can\'t tell.' },
-            ].map(({ emoji, label, body }) => (
+              { label: 'You\'ve tried ChatGPT', body: 'Asked it a few questions, got some answers. Nodded along. Then went back to doing things the old way because it wasn\'t clear how it actually fit into your life.' },
+              { label: 'You\'ve read the articles', body: '"AI will change everything." Cool. But which tool should you open right now, and what should you actually type into it? The articles never say.' },
+              { label: 'You\'re not sure what you\'re missing', body: 'Maybe you\'re already getting 80% of the value. Maybe you\'re getting 5%. Without a clear picture of what\'s possible, you can\'t tell.' },
+            ].map(({ label, body }) => (
               <div key={label} className="bg-stone-50 rounded-2xl p-6 border border-stone-100">
-                <div className="text-3xl mb-3">{emoji}</div>
                 <h3 className="font-bold text-stone-900 mb-2 text-sm">{label}</h3>
                 <p className="text-stone-500 text-sm leading-relaxed">{body}</p>
               </div>
             ))}
           </div>
-          <div className="mt-12 p-8 bg-stone-900 rounded-2xl text-white">
+          <div className="mt-6 p-7 bg-stone-900 rounded-2xl text-white">
             <p className="text-xl font-semibold leading-relaxed">
               "The problem isn't you. It's that most AI content tells you <em className="text-brand-400">what</em> exists but never shows you <em className="text-brand-400">what to do</em>. Step by step. With screenshots. Right now."
             </p>
-            <p className="text-stone-500 text-sm mt-4">That's what these guides fix.</p>
+            <p className="text-stone-500 text-sm mt-3">That's what these guides fix.</p>
           </div>
         </div>
       </section>
 
       {/* ── THE GUIDES ── */}
-      <section className="py-24 px-6 bg-stone-50 border-b border-stone-100">
+      <section className="py-16 px-6 bg-stone-50 border-b border-stone-100">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
             <div className="text-xs font-bold tracking-widest text-brand-500 uppercase mb-3">Three guides. One clear goal.</div>
@@ -206,7 +205,7 @@ export default function Home() {
       </section>
 
       {/* ── WHY DIFFERENT ── */}
-      <section className="py-24 px-6 bg-white border-b border-stone-100">
+      <section className="py-16 px-6 bg-white border-b border-stone-100">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
             <div className="text-xs font-bold tracking-widest text-brand-500 uppercase mb-3">What makes these different</div>
@@ -230,7 +229,7 @@ export default function Home() {
       </section>
 
       {/* ── INSIDE A GUIDE ── */}
-      <section className="py-24 px-6 bg-stone-900 text-white border-b border-stone-800">
+      <section className="py-16 px-6 bg-stone-900 text-white border-b border-stone-800">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
             <div className="text-xs font-bold tracking-widest text-brand-400 uppercase mb-3">A look inside</div>
@@ -264,7 +263,7 @@ export default function Home() {
       </section>
 
       {/* ── SOCIAL PROOF ── */}
-      <section className="py-24 px-6 bg-white border-b border-stone-100">
+      <section className="py-16 px-6 bg-white border-b border-stone-100">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-black text-stone-900 mb-3">What readers say</h2>
@@ -293,7 +292,7 @@ export default function Home() {
       </section>
 
       {/* ── OBJECTION HANDLING ── */}
-      <section className="py-24 px-6 bg-stone-50 border-b border-stone-100">
+      <section className="py-16 px-6 bg-stone-50 border-b border-stone-100">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-black text-stone-900">Reasons not to buy — answered honestly.</h2>
