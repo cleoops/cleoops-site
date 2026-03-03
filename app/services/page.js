@@ -3,6 +3,9 @@ export const metadata = {
   description: 'Practical AI guides for real people. No jargon, no fluff — just what works.',
 }
 
+// Photography guide Stripe link: https://buy.stripe.com/bJeaEW2TbeCa5lE6zUfjG06
+// PDF: https://cleoops.com/guides/ai-for-photographers-guide-e14138859d0f.pdf
+
 export default function Services() {
   return (
     <div>
@@ -252,6 +255,67 @@ export default function Services() {
                 <p className="text-stone-600 leading-relaxed">{a}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* GUIDE 4 — PHOTOGRAPHY */}
+      <section className="py-20 px-6 border-b border-stone-100">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid sm:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <span className="bg-orange-100 text-orange-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">For photographers</span>
+                <span className="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">New</span>
+              </div>
+              <h2 className="text-3xl font-bold text-stone-900 mb-4 leading-tight">
+                AI for Photographers Guide
+              </h2>
+              <p className="text-lg text-stone-600 leading-relaxed mb-6">
+                8 AI tools that transform editing, organisation, and delivery. Lightroom AI masking, Topaz upscaling, Firefly generative fill, background removal — all with exact step-by-step exercises.
+              </p>
+              <ul className="space-y-3 mb-8">
+                {[
+                  'Lightroom AI masking, Denoise, and Generative Remove',
+                  'Topaz Gigapixel — upscale to print size without losing sharpness',
+                  'Adobe Firefly — extend backgrounds, remove objects, generate skies',
+                  'Google Photos smart search, Magic Eraser, Cinematic photos',
+                  'Remove.bg — perfect cutouts in 5 seconds',
+                ].map(f => (
+                  <li key={f} className="flex items-start gap-3 text-stone-700">
+                    <span className="text-orange-500 font-bold mt-0.5 flex-shrink-0">✓</span>
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="flex items-center gap-4">
+                <div>
+                  <span className="text-3xl font-bold text-orange-500">$19</span>
+                  <span className="text-stone-400 text-sm ml-2">one-time</span>
+                </div>
+                <a href="https://buy.stripe.com/bJeaEW2TbeCa5lE6zUfjG06" target="_blank" rel="noopener noreferrer"
+                   className="bg-orange-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-orange-600 transition-colors">
+                  Buy now — $19
+                </a>
+              </div>
+              <p className="text-stone-400 text-xs mt-3">Instant PDF delivered after payment. No account needed.</p>
+            </div>
+            <div className="bg-gradient-to-br from-stone-900 to-stone-800 rounded-2xl p-8 text-white">
+              <div className="text-4xl mb-4">📷</div>
+              <h3 className="font-bold text-lg mb-2">What's inside</h3>
+              <div className="space-y-3 text-sm text-stone-300">
+                <div className="flex justify-between border-b border-stone-700 pb-2"><span>Tools covered</span><span className="font-semibold text-white">8</span></div>
+                <div className="flex justify-between border-b border-stone-700 pb-2"><span>Exercises to try</span><span className="font-semibold text-white">35+</span></div>
+                <div className="flex justify-between border-b border-stone-700 pb-2"><span>Pages</span><span className="font-semibold text-white">24</span></div>
+                <div className="flex justify-between border-b border-stone-700 pb-2"><span>Editing time saved</span><span className="font-semibold text-orange-400">~40%</span></div>
+                <div className="flex justify-between"><span>Format</span><span className="font-semibold text-white">PDF</span></div>
+              </div>
+              <div className="mt-6 p-4 bg-orange-500/20 rounded-xl border border-orange-500/30">
+                <p className="text-orange-200 text-sm leading-relaxed">
+                  Lightroom AI masking does in one click what used to take 30 minutes of careful brushwork. That's the quality of time-saving across all 8 tools in this guide.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
