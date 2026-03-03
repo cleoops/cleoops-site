@@ -1,15 +1,15 @@
 import './globals.css'
 
 export const metadata = {
-  title: 'Cleo – AI for Everyone',
-  description: 'Cleo helps everyday people get real value from AI tools. Simple, practical, no jargon.',
+  title: 'Cleo – AI Guides with Step-by-Step Exercises',
+  description: 'Practical AI guides that tell you what to click, not just what to do. 9 tools, 45+ exercises, instant PDF. From $9.',
   icons: {
     icon: '/favicon.ico',
     apple: '/apple-touch-icon.png',
   },
   openGraph: {
-    title: 'Cleo – AI for Everyone',
-    description: 'Cleo helps everyday people get real value from AI tools.',
+    title: 'Cleo – AI Guides with Step-by-Step Exercises',
+    description: 'Practical AI guides that tell you what to click, not just what to do. From $9.',
     url: 'https://cleoops.com',
     siteName: 'Cleo',
   },
