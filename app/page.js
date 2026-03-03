@@ -108,9 +108,9 @@ export default function Home() {
       <section className="py-16 px-6 bg-stone-50 border-b border-stone-100">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
-            <div className="text-xs font-bold tracking-widest text-brand-500 uppercase mb-3">Four guides. One clear goal.</div>
+            <div className="text-xs font-bold tracking-widest text-brand-500 uppercase mb-3">Five guides. One clear goal.</div>
             <h2 className="text-4xl font-black text-stone-900 mb-4">Pick the one that's right for you.</h2>
-            <p className="text-stone-500 max-w-xl mx-auto">Every guide is standalone. Every exercise has exact numbered steps. Every tool has a free tier — you can do everything in all four guides without spending a penny on subscriptions.</p>
+            <p className="text-stone-500 max-w-xl mx-auto">Every guide is standalone. Every exercise has exact numbered steps. Every tool has a free tier — you can do everything in all five guides without spending a penny on subscriptions.</p>
           </div>
 
           {/* Guide 1 */}
@@ -206,13 +206,12 @@ export default function Home() {
           </div>
 
           {/* Guide 4 — Photography */}
-          <div className="bg-white rounded-3xl border border-stone-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+          <div className="bg-white rounded-3xl border border-stone-200 overflow-hidden mb-8 shadow-sm hover:shadow-md transition-shadow">
             <div className="grid sm:grid-cols-5 gap-0">
               <div className="sm:col-span-2 bg-gradient-to-br from-stone-900 to-stone-700 relative min-h-[200px] flex items-center justify-center">
                 <span className="text-7xl">📷</span>
                 <div className="absolute top-4 left-4 flex gap-2">
                   <span className="bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">For photographers</span>
-                  <span className="bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">New</span>
                 </div>
               </div>
               <div className="sm:col-span-3 p-8">
@@ -228,6 +227,37 @@ export default function Home() {
                   <div><span className="text-3xl font-black text-orange-500">$19</span><span className="text-stone-400 text-sm ml-1">one-time</span></div>
                   <a href="https://buy.stripe.com/bJeaEW2TbeCa5lE6zUfjG06" target="_blank" rel="noopener noreferrer"
                      className="bg-orange-500 text-white px-6 py-2.5 rounded-full font-bold hover:bg-orange-600 transition-colors">
+                    Buy now →
+                  </a>
+                  <span className="text-xs text-stone-400">Instant PDF</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Guide 5 — Video Creators */}
+          <div className="bg-white rounded-3xl border border-stone-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <div className="grid sm:grid-cols-5 gap-0">
+              <div className="sm:col-span-2 bg-gradient-to-br from-red-950 to-orange-900 relative min-h-[200px] flex items-center justify-center">
+                <span className="text-7xl">🎬</span>
+                <div className="absolute top-4 left-4 flex gap-2">
+                  <span className="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">For video creators</span>
+                  <span className="bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">New</span>
+                </div>
+              </div>
+              <div className="sm:col-span-3 p-8">
+                <div className="text-xs font-bold tracking-widest text-red-600 uppercase mb-2">Video Creators Guide</div>
+                <h3 className="text-2xl font-black text-stone-900 mb-3">AI for Video Creators</h3>
+                <p className="text-stone-600 mb-4 leading-relaxed">Edit with Descript, repurpose with Opus Clip, clone your voice with ElevenLabs, grow with TubeBuddy — 6 tools and 30+ exercises covering the complete YouTube and Shorts workflow.</p>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {['Descript', 'Opus Clip', 'ElevenLabs', 'CapCut AI', 'ChatGPT', 'TubeBuddy'].map(t => (
+                    <span key={t} className="bg-red-50 text-red-700 text-xs font-medium px-2.5 py-1 rounded-full border border-red-100">{t}</span>
+                  ))}
+                </div>
+                <div className="flex items-center gap-5">
+                  <div><span className="text-3xl font-black text-red-600">$19</span><span className="text-stone-400 text-sm ml-1">one-time</span></div>
+                  <a href="https://buy.stripe.com/dRm5kCalD65E9BUaQafjG07" target="_blank" rel="noopener noreferrer"
+                     className="bg-red-600 text-white px-6 py-2.5 rounded-full font-bold hover:bg-red-700 transition-colors">
                     Buy now →
                   </a>
                   <span className="text-xs text-stone-400">Instant PDF</span>
