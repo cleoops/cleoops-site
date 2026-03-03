@@ -205,7 +205,7 @@ export default function Services() {
               <p className="text-stone-400 text-xs mt-3">Instant PDF delivered after payment. No account needed.</p>
             </div>
             <div className="bg-gradient-to-br from-blue-950 to-blue-900 rounded-2xl p-8 text-white">
-              <div className="text-4xl mb-4">🏡</div>
+              <div className="relative h-32 rounded-xl overflow-hidden mb-4"><img src="/images/smarthome-guide.jpg" alt="Smart Home" className="w-full h-full object-cover" /></div>
               <h3 className="font-bold text-lg mb-2">What's inside</h3>
               <div className="space-y-3 text-sm text-blue-200">
                 <div className="flex justify-between border-b border-blue-800 pb-2"><span>Areas covered</span><span className="font-semibold text-white">6 in depth</span></div>
@@ -307,7 +307,7 @@ export default function Services() {
               <p className="text-stone-400 text-xs mt-3">Instant PDF delivered after payment. No account needed.</p>
             </div>
             <div className="bg-gradient-to-br from-stone-900 to-stone-800 rounded-2xl p-8 text-white">
-              <div className="text-4xl mb-4">📷</div>
+              <div className="relative h-32 rounded-xl overflow-hidden mb-4"><img src="/images/photography-guide.jpg" alt="Photography" className="w-full h-full object-cover" /></div>
               <h3 className="font-bold text-lg mb-2">What's inside</h3>
               <div className="space-y-3 text-sm text-stone-300">
                 <div className="flex justify-between border-b border-stone-700 pb-2"><span>Tools covered</span><span className="font-semibold text-white">8</span></div>
@@ -331,7 +331,7 @@ export default function Services() {
         <div className="max-w-4xl mx-auto">
           <div className="grid sm:grid-cols-2 gap-12 items-center">
             <div className="bg-gradient-to-br from-indigo-950 to-purple-900 rounded-2xl p-8 text-white order-2 sm:order-1">
-              <div className="text-4xl mb-4">🍎</div>
+              <div className="relative h-32 rounded-xl overflow-hidden mb-4"><img src="/images/teachers-guide.jpg" alt="Teachers" className="w-full h-full object-cover" /></div>
               <h3 className="font-bold text-lg mb-2">What's inside</h3>
               <div className="space-y-3 text-sm text-indigo-200">
                 <div className="flex justify-between border-b border-indigo-800 pb-2"><span>Tools covered</span><span className="font-semibold text-white">6</span></div>
@@ -431,7 +431,7 @@ export default function Services() {
               <p className="text-stone-400 text-xs mt-3">Instant PDF delivered after payment. No account needed.</p>
             </div>
             <div className="bg-gradient-to-br from-blue-950 to-blue-900 rounded-2xl p-8 text-white">
-              <div className="text-4xl mb-4">💼</div>
+              <div className="relative h-32 rounded-xl overflow-hidden mb-4"><img src="/images/jobseekers-guide.jpg" alt="Job Seekers" className="w-full h-full object-cover" /></div>
               <h3 className="font-bold text-lg mb-2">What's inside</h3>
               <div className="space-y-3 text-sm text-blue-200">
                 <div className="flex justify-between border-b border-blue-800 pb-2"><span>Tools covered</span><span className="font-semibold text-white">6</span></div>
@@ -455,7 +455,7 @@ export default function Services() {
         <div className="max-w-4xl mx-auto">
           <div className="grid sm:grid-cols-2 gap-12 items-center">
             <div className="bg-gradient-to-br from-red-950 to-orange-900 rounded-2xl p-8 text-white order-2 sm:order-1">
-              <div className="text-4xl mb-4">🎬</div>
+              <div className="relative h-32 rounded-xl overflow-hidden mb-4"><img src="/images/video-guide.jpg" alt="Video Creators" className="w-full h-full object-cover" /></div>
               <h3 className="font-bold text-lg mb-2">What's inside</h3>
               <div className="space-y-3 text-sm text-orange-200">
                 <div className="flex justify-between border-b border-red-800 pb-2"><span>Tools covered</span><span className="font-semibold text-white">6</span></div>

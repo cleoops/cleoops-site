@@ -178,8 +178,9 @@ export default function Home() {
           {/* Guide 3 */}
           <div className="bg-white rounded-3xl border border-stone-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
             <div className="grid sm:grid-cols-5 gap-0">
-              <div className="sm:col-span-2 bg-gradient-to-br from-blue-950 to-blue-900 relative min-h-[200px] flex items-center justify-center">
-                <span className="text-7xl">🏡</span>
+              <div className="sm:col-span-2 relative min-h-[200px]">
+                <Image src="/images/smarthome-guide.jpg" alt="Smart Home AI Guide" fill className="object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/40 sm:block hidden" />
                 <div className="absolute top-4 left-4">
                   <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">For homeowners</span>
                 </div>
@@ -208,8 +209,9 @@ export default function Home() {
           {/* Guide 4 — Photography */}
           <div className="bg-white rounded-3xl border border-stone-200 overflow-hidden mb-8 shadow-sm hover:shadow-md transition-shadow">
             <div className="grid sm:grid-cols-5 gap-0">
-              <div className="sm:col-span-2 bg-gradient-to-br from-stone-900 to-stone-700 relative min-h-[200px] flex items-center justify-center">
-                <span className="text-7xl">📷</span>
+              <div className="sm:col-span-2 relative min-h-[200px]">
+                <Image src="/images/photography-guide.jpg" alt="AI for Photographers" fill className="object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/40 sm:block hidden" />
                 <div className="absolute top-4 left-4 flex gap-2">
                   <span className="bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">For photographers</span>
                 </div>
@@ -238,8 +240,9 @@ export default function Home() {
           {/* Guide 6 — Teachers */}
           <div className="bg-white rounded-3xl border border-stone-200 overflow-hidden mb-8 shadow-sm hover:shadow-md transition-shadow">
             <div className="grid sm:grid-cols-5 gap-0">
-              <div className="sm:col-span-2 bg-gradient-to-br from-indigo-950 to-purple-900 relative min-h-[200px] flex items-center justify-center">
-                <span className="text-7xl">🍎</span>
+              <div className="sm:col-span-2 relative min-h-[200px]">
+                <Image src="/images/teachers-guide.jpg" alt="AI for Teachers" fill className="object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/40 sm:block hidden" />
                 <div className="absolute top-4 left-4 flex gap-2">
                   <span className="bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full">For teachers</span>
                   <span className="bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">New</span>
@@ -269,8 +272,9 @@ export default function Home() {
           {/* Guide 7 — Job Seekers */}
           <div className="bg-white rounded-3xl border border-stone-200 overflow-hidden mb-8 shadow-sm hover:shadow-md transition-shadow">
             <div className="grid sm:grid-cols-5 gap-0">
-              <div className="sm:col-span-2 bg-gradient-to-br from-blue-950 to-blue-800 relative min-h-[200px] flex items-center justify-center">
-                <span className="text-7xl">💼</span>
+              <div className="sm:col-span-2 relative min-h-[200px]">
+                <Image src="/images/jobseekers-guide.jpg" alt="AI for Job Seekers" fill className="object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/40 sm:block hidden" />
                 <div className="absolute top-4 left-4 flex gap-2">
                   <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">For job seekers</span>
                   <span className="bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">New</span>
@@ -300,8 +304,9 @@ export default function Home() {
           {/* Guide 5 — Video Creators */}
           <div className="bg-white rounded-3xl border border-stone-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
             <div className="grid sm:grid-cols-5 gap-0">
-              <div className="sm:col-span-2 bg-gradient-to-br from-red-950 to-orange-900 relative min-h-[200px] flex items-center justify-center">
-                <span className="text-7xl">🎬</span>
+              <div className="sm:col-span-2 relative min-h-[200px]">
+                <Image src="/images/video-guide.jpg" alt="AI for Video Creators" fill className="object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/40 sm:block hidden" />
                 <div className="absolute top-4 left-4 flex gap-2">
                   <span className="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">For video creators</span>
                   <span className="bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">New</span>
