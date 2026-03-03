@@ -24,7 +24,7 @@ export default function Home() {
                 Every exercise has numbered steps. Exact URLs. Where to click. What to type. What to look for.
               </p>
               <p className="text-stone-500 mb-10 max-w-md">
-                Three guides covering AI for everyday life, music production, and smart homes. From $9. No subscriptions. No fluff.
+                Seven guides covering AI for everyday life, music, smart homes, photography, video, teaching, and job searching. From $9. No subscriptions. No fluff.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 mb-10">
                 <a href="https://buy.stripe.com/eVq00idxP3XwdSa8I2fjG00" target="_blank" rel="noopener noreferrer"
@@ -33,7 +33,7 @@ export default function Home() {
                 </a>
                 <a href="/services"
                    className="bg-transparent text-stone-300 px-8 py-4 rounded-full font-semibold text-lg border border-stone-700 hover:border-stone-500 transition-colors text-center">
-                  See all 5 guides
+                  See all 7 guides
                 </a>
               </div>
               <div className="flex items-center gap-6 text-stone-500 text-sm">
@@ -108,9 +108,9 @@ export default function Home() {
       <section className="py-16 px-6 bg-stone-50 border-b border-stone-100">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
-            <div className="text-xs font-bold tracking-widest text-brand-500 uppercase mb-3">Five guides. One clear goal.</div>
+            <div className="text-xs font-bold tracking-widest text-brand-500 uppercase mb-3">Seven guides. One clear goal.</div>
             <h2 className="text-4xl font-black text-stone-900 mb-4">Pick the one that's right for you.</h2>
-            <p className="text-stone-500 max-w-xl mx-auto">Every guide is standalone. Every exercise has exact numbered steps. Every tool has a free tier — you can do everything in all five guides without spending a penny on subscriptions.</p>
+            <p className="text-stone-500 max-w-xl mx-auto">Every guide is standalone. Every exercise has exact numbered steps. Every tool has a free tier — you can do everything in all seven guides without spending a penny on subscriptions.</p>
           </div>
 
           {/* Guide 1 */}
@@ -227,6 +227,68 @@ export default function Home() {
                   <div><span className="text-3xl font-black text-orange-500">$19</span><span className="text-stone-400 text-sm ml-1">one-time</span></div>
                   <a href="https://buy.stripe.com/bJeaEW2TbeCa5lE6zUfjG06" target="_blank" rel="noopener noreferrer"
                      className="bg-orange-500 text-white px-6 py-2.5 rounded-full font-bold hover:bg-orange-600 transition-colors">
+                    Buy now →
+                  </a>
+                  <span className="text-xs text-stone-400">Instant PDF</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Guide 6 — Teachers */}
+          <div className="bg-white rounded-3xl border border-stone-200 overflow-hidden mb-8 shadow-sm hover:shadow-md transition-shadow">
+            <div className="grid sm:grid-cols-5 gap-0">
+              <div className="sm:col-span-2 bg-gradient-to-br from-indigo-950 to-purple-900 relative min-h-[200px] flex items-center justify-center">
+                <span className="text-7xl">🍎</span>
+                <div className="absolute top-4 left-4 flex gap-2">
+                  <span className="bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full">For teachers</span>
+                  <span className="bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">New</span>
+                </div>
+              </div>
+              <div className="sm:col-span-3 p-8">
+                <div className="text-xs font-bold tracking-widest text-indigo-600 uppercase mb-2">Teachers Guide</div>
+                <h3 className="text-2xl font-black text-stone-900 mb-3">AI for Teachers</h3>
+                <p className="text-stone-600 mb-4 leading-relaxed">ChatGPT for lesson planning, MagicSchool.ai for differentiation, Diffit for reading-level adaptation, Claude for grading feedback — 6 tools that save 5+ hours a week, with 30+ step-by-step exercises.</p>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {['ChatGPT', 'MagicSchool.ai', 'Diffit', 'Claude', 'Curipod'].map(t => (
+                    <span key={t} className="bg-indigo-50 text-indigo-700 text-xs font-medium px-2.5 py-1 rounded-full border border-indigo-100">{t}</span>
+                  ))}
+                </div>
+                <div className="flex items-center gap-5">
+                  <div><span className="text-3xl font-black text-indigo-600">$19</span><span className="text-stone-400 text-sm ml-1">one-time</span></div>
+                  <a href="https://buy.stripe.com/dRmbJ0alD9hQ29s4rMfjG08" target="_blank" rel="noopener noreferrer"
+                     className="bg-indigo-600 text-white px-6 py-2.5 rounded-full font-bold hover:bg-indigo-700 transition-colors">
+                    Buy now →
+                  </a>
+                  <span className="text-xs text-stone-400">Instant PDF</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Guide 7 — Job Seekers */}
+          <div className="bg-white rounded-3xl border border-stone-200 overflow-hidden mb-8 shadow-sm hover:shadow-md transition-shadow">
+            <div className="grid sm:grid-cols-5 gap-0">
+              <div className="sm:col-span-2 bg-gradient-to-br from-blue-950 to-blue-800 relative min-h-[200px] flex items-center justify-center">
+                <span className="text-7xl">💼</span>
+                <div className="absolute top-4 left-4 flex gap-2">
+                  <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">For job seekers</span>
+                  <span className="bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">New</span>
+                </div>
+              </div>
+              <div className="sm:col-span-3 p-8">
+                <div className="text-xs font-bold tracking-widest text-blue-600 uppercase mb-2">Job Seekers Guide</div>
+                <h3 className="text-2xl font-black text-stone-900 mb-3">AI for Job Seekers</h3>
+                <p className="text-stone-600 mb-4 leading-relaxed">CV tailoring with ChatGPT, cover letters with Claude, LinkedIn optimisation, mock interviews, job tracking with Teal, salary research with Perplexity — 6 tools and 25+ exercises for a smarter job search.</p>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {['ChatGPT', 'Claude', 'LinkedIn AI', 'Teal', 'Perplexity'].map(t => (
+                    <span key={t} className="bg-blue-50 text-blue-700 text-xs font-medium px-2.5 py-1 rounded-full border border-blue-100">{t}</span>
+                  ))}
+                </div>
+                <div className="flex items-center gap-5">
+                  <div><span className="text-3xl font-black text-blue-600">$19</span><span className="text-stone-400 text-sm ml-1">one-time</span></div>
+                  <a href="https://buy.stripe.com/28E00i79r2Ts8xQ4rMfjG09" target="_blank" rel="noopener noreferrer"
+                     className="bg-blue-600 text-white px-6 py-2.5 rounded-full font-bold hover:bg-blue-700 transition-colors">
                     Buy now →
                   </a>
                   <span className="text-xs text-stone-400">Instant PDF</span>
@@ -397,7 +459,7 @@ export default function Home() {
             </a>
             <a href="/services"
                className="bg-transparent text-stone-400 px-10 py-4 rounded-full font-semibold text-lg border border-stone-700 hover:border-stone-500 transition-colors">
-              See all 3 guides
+              See all 7 guides
             </a>
           </div>
           <div className="mt-8 flex justify-center gap-8 text-stone-600 text-xs">
