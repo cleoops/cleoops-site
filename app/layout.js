@@ -1,4 +1,9 @@
 import './globals.css'
+import Script from 'next/script'
+
+// META PIXEL ID — replace 'PIXEL_ID_HERE' with your actual Pixel ID from business.facebook.com
+// Steps: business.facebook.com → Events Manager → Connect Data Sources → Web → Get started
+const META_PIXEL_ID = process.env.META_PIXEL_ID || null
 
 export const metadata = {
   title: 'Cleo – AI Guides with Step-by-Step Exercises',
@@ -33,6 +38,21 @@ export default function RootLayout({ children }) {
             </div>
           </div>
         </nav>
+        {META_PIXEL_ID && (
+          <>
+            <Script id="meta-pixel" strategy="afterInteractive">{`
+              !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+              n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+              document,'script','https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '${META_PIXEL_ID}');
+              fbq('track', 'PageView');
+            `}</Script>
+            <noscript><img height="1" width="1" style={{display:'none'}}
+              src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`} alt=""/></noscript>
+          </>
+        )}
         <main>{children}</main>
         <footer className="border-t border-stone-200 mt-24 py-12 text-sm text-stone-500">
           <div className="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row justify-between gap-4">
