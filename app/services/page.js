@@ -5,6 +5,8 @@ export const metadata = {
 
 // Photography guide Stripe link: https://buy.stripe.com/bJeaEW2TbeCa5lE6zUfjG06
 // PDF: https://cleoops.com/guides/ai-for-photographers-guide-e14138859d0f.pdf
+// Video Creators guide Stripe link: https://buy.stripe.com/dRm5kCalD65E9BUaQafjG07
+// PDF: https://cleoops.com/guides/ai-for-video-creators-guide-ca3db09d.pdf
 
 export default function Services() {
   return (
@@ -315,6 +317,68 @@ export default function Services() {
                   Lightroom AI masking does in one click what used to take 30 minutes of careful brushwork. That's the quality of time-saving across all 8 tools in this guide.
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* GUIDE 5 — VIDEO CREATORS */}
+      <section className="py-20 px-6 border-b border-stone-100 bg-stone-50">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid sm:grid-cols-2 gap-12 items-center">
+            <div className="bg-gradient-to-br from-red-950 to-orange-900 rounded-2xl p-8 text-white order-2 sm:order-1">
+              <div className="text-4xl mb-4">🎬</div>
+              <h3 className="font-bold text-lg mb-2">What's inside</h3>
+              <div className="space-y-3 text-sm text-orange-200">
+                <div className="flex justify-between border-b border-red-800 pb-2"><span>Tools covered</span><span className="font-semibold text-white">6</span></div>
+                <div className="flex justify-between border-b border-red-800 pb-2"><span>Exercises to try</span><span className="font-semibold text-white">30+</span></div>
+                <div className="flex justify-between border-b border-red-800 pb-2"><span>Pages</span><span className="font-semibold text-white">22</span></div>
+                <div className="flex justify-between border-b border-red-800 pb-2"><span>Weekly time saved</span><span className="font-semibold text-orange-300">~5 hrs</span></div>
+                <div className="flex justify-between"><span>Format</span><span className="font-semibold text-white">PDF</span></div>
+              </div>
+              <div className="mt-6 p-4 bg-orange-500/20 rounded-xl border border-orange-500/30">
+                <p className="text-orange-200 text-sm leading-relaxed">
+                  One long-form video can become a month of Shorts content with Opus Clip. Descript cuts editing time by 60%. These are the tools that let you post more without filming more.
+                </p>
+              </div>
+            </div>
+            <div className="order-1 sm:order-2">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="bg-red-100 text-red-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">For video creators</span>
+                <span className="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">New</span>
+              </div>
+              <h2 className="text-3xl font-bold text-stone-900 mb-4 leading-tight">
+                AI for Video Creators Guide
+              </h2>
+              <p className="text-lg text-stone-600 leading-relaxed mb-6">
+                The complete AI stack for YouTubers and short-form creators. Edit faster with Descript, repurpose with Opus Clip, grow with TubeBuddy — all with exact step-by-step exercises.
+              </p>
+              <ul className="space-y-3 mb-8">
+                {[
+                  'Descript — edit video by editing text, remove filler words in one click',
+                  'Opus Clip — auto-clip long videos into 10 Shorts in minutes',
+                  'ElevenLabs — clone your voice for narration and audio fixes',
+                  'CapCut AI — animated captions, AI b-roll, background remover',
+                  'ChatGPT for scripting, titles, descriptions, and content planning',
+                  'TubeBuddy & vidIQ — keyword research and SEO that actually works',
+                ].map(f => (
+                  <li key={f} className="flex items-start gap-3 text-stone-700">
+                    <span className="text-red-500 font-bold mt-0.5 flex-shrink-0">✓</span>
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="flex items-center gap-4">
+                <div>
+                  <span className="text-3xl font-bold text-red-600">$19</span>
+                  <span className="text-stone-400 text-sm ml-2">one-time</span>
+                </div>
+                <a href="https://buy.stripe.com/dRm5kCalD65E9BUaQafjG07" target="_blank" rel="noopener noreferrer"
+                   className="bg-red-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-red-700 transition-colors">
+                  Buy now — $19
+                </a>
+              </div>
+              <p className="text-stone-400 text-xs mt-3">Instant PDF delivered after payment. No account needed.</p>
             </div>
           </div>
         </div>

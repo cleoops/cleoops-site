@@ -33,7 +33,7 @@ export default function Home() {
                 </a>
                 <a href="/services"
                    className="bg-transparent text-stone-300 px-8 py-4 rounded-full font-semibold text-lg border border-stone-700 hover:border-stone-500 transition-colors text-center">
-                  See all 3 guides
+                  See all 5 guides
                 </a>
               </div>
               <div className="flex items-center gap-6 text-stone-500 text-sm">

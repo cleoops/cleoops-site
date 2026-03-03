@@ -5,6 +5,10 @@ import Script from 'next/script'
 // Steps: business.facebook.com → Events Manager → Connect Data Sources → Web → Get started
 const META_PIXEL_ID = process.env.META_PIXEL_ID || null
 
+// Google Analytics Measurement ID — set GA_MEASUREMENT_ID in Vercel env vars
+// Steps: analytics.google.com → Create property → Data streams → Web → copy G-XXXXXXXXXX
+const GA_ID = process.env.GA_MEASUREMENT_ID || null
+
 export const metadata = {
   title: 'Cleo – AI Guides with Step-by-Step Exercises',
   description: 'Practical AI guides that tell you what to click, not just what to do. 9 tools, 45+ exercises, instant PDF. From $9.',
@@ -38,6 +42,17 @@ export default function RootLayout({ children }) {
             </div>
           </div>
         </nav>
+        {GA_ID && (
+          <>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+            <Script id="google-analytics" strategy="afterInteractive">{`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_ID}');
+            `}</Script>
+          </>
+        )}
         {META_PIXEL_ID && (
           <>
             <Script id="meta-pixel" strategy="afterInteractive">{`
