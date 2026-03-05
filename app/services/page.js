@@ -27,9 +27,12 @@ export default function Services() {
             AI guides that actually<br />
             <span className="text-brand-400">teach you something useful</span>
           </h1>
-          <p className="text-xl text-stone-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-stone-400 max-w-2xl mx-auto leading-relaxed mb-6">
             No fluff. No filler. Every guide is built around specific tools, honest assessments, and exercises you can do today. Yours to keep forever.
           </p>
+          <a href="/tools/ai-quiz" className="inline-flex items-center gap-1.5 text-brand-400 text-sm font-semibold hover:text-brand-300 transition-colors">
+            Not sure which guide? Take the quiz →
+          </a>
         </div>
       </section>
 
@@ -527,6 +530,11 @@ export default function Services() {
             <a href="/contact"
                className="bg-transparent text-stone-400 px-8 py-4 rounded-full font-semibold text-lg border border-stone-700 hover:border-stone-500 transition-colors">
               Got a question?
+            </a>
+          </div>
+          <div className="mt-6">
+            <a href="/tools/ai-quiz" className="text-brand-400 text-sm font-semibold hover:text-brand-300 transition-colors">
+              Not sure which guide? Take the quiz →
             </a>
           </div>
           <p className="text-stone-600 text-sm mt-6">Secure checkout · Instant delivery · 7-day money-back guarantee</p>

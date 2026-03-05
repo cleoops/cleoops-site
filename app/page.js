@@ -26,7 +26,7 @@ export default function Home() {
               <p className="text-stone-500 mb-10 max-w-md">
                 Seven guides covering AI for everyday life, music, smart homes, photography, video, teaching, and job searching. From $9. No subscriptions. No fluff.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 mb-10">
+              <div className="flex flex-col sm:flex-row gap-3 mb-6">
                 <a href="https://buy.stripe.com/eVq00idxP3XwdSa8I2fjG00" target="_blank" rel="noopener noreferrer"
                    className="bg-brand-500 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-brand-600 transition-colors text-center">
                   Start for $9 →
@@ -36,6 +36,9 @@ export default function Home() {
                   See all 7 guides
                 </a>
               </div>
+              <a href="/tools/ai-quiz" className="inline-flex items-center gap-1.5 text-brand-400 text-sm font-semibold hover:text-brand-300 transition-colors mb-10">
+                Not sure which guide? Take the quiz →
+              </a>
               <div className="flex items-center gap-6 text-stone-500 text-sm">
                 <span>✓ Instant download</span>
                 <span>✓ 7-day guarantee</span>
@@ -465,6 +468,11 @@ export default function Home() {
             <a href="/services"
                className="bg-transparent text-stone-400 px-10 py-4 rounded-full font-semibold text-lg border border-stone-700 hover:border-stone-500 transition-colors">
               See all 7 guides
+            </a>
+          </div>
+          <div className="mt-6">
+            <a href="/tools/ai-quiz" className="text-brand-400 text-sm font-semibold hover:text-brand-300 transition-colors">
+              Not sure which guide? Take the quiz →
             </a>
           </div>
           <div className="mt-8 flex justify-center gap-8 text-stone-600 text-xs">
