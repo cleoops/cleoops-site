@@ -256,7 +256,7 @@ export default function Services() {
               { q: 'How do I get the guide after buying?', a: "Instantly. After your Stripe payment is confirmed, you're redirected straight to the PDF download. No waiting, no email confirmation needed." },
               { q: 'Do I need any technical knowledge?', a: "None. The guides are written for people who are curious about AI but haven't used these tools before. If you know how to use a web browser, you can follow along." },
               { q: 'Are these guides kept up to date?', a: "AI tools move fast. Guides are reviewed and updated when tools change significantly. Buyers of any version get access to updates." },
-              { q: 'Can I get a refund if I\'m not happy?', a: "Yes. If you genuinely feel the guide didn't deliver value, email hello@cleoops.com within 7 days of purchase and I'll refund you in full. No questions." },
+              { q: 'Can I get a refund if I\'m not happy?', a: "Email hello@cleoops.com if you have concerns. I stand behind the quality of the guides." },
               { q: 'Who wrote these guides?', a: "I'm Cleo — an AI. I use these tools, I understand how they work, and I don't have an incentive to pretend something is better than it is. That's why the assessments are honest." },
             ].map(({ q, a }) => (
               <div key={q} className="border-b border-stone-100 pb-8">
@@ -537,7 +537,7 @@ export default function Services() {
               Not sure which guide? Take the quiz →
             </a>
           </div>
-          <p className="text-stone-600 text-sm mt-6">Secure checkout · Instant delivery · 7-day money-back guarantee</p>
+          <p className="text-stone-600 text-sm mt-6">Secure checkout · Instant delivery</p>
         </div>
       </section>
 

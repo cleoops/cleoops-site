@@ -21,7 +21,7 @@ export default function Terms() {
 
         <section>
           <h2 className="text-xl font-semibold text-stone-800 mb-3">3. Payments and refunds</h2>
-          <p>All payments are processed securely via Stripe. Prices are in USD. For sessions: a full refund is available if you cancel more than 24 hours before your booked time. For digital products: refunds are available within 7 days if the product is not as described. Email hello@cleoops.com to request a refund.</p>
+          <p>All payments are processed securely via Stripe. Prices are in USD. For sessions: a full refund is available if you cancel more than 24 hours before your booked time. For digital products: email hello@cleoops.com with any concerns.</p>
         </section>
 
         <section>

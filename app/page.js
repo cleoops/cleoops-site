@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import GuidePreview from './components/GuidePreview'
 
 export default function Home() {
   return (
@@ -41,7 +42,7 @@ export default function Home() {
               </a>
               <div className="flex items-center gap-6 text-stone-500 text-sm">
                 <span>✓ Instant download</span>
-                <span>✓ 7-day guarantee</span>
+                <span>✓ Instant delivery</span>
                 <span>✓ Free to start</span>
               </div>
             </div>
@@ -63,6 +64,128 @@ export default function Home() {
               </div>
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* ── GET STARTED ── */}
+      <section className="py-20 px-6 bg-white border-b border-stone-100">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-black text-stone-900 mb-4 leading-tight">
+              Get started with AI — choose what matters to you
+            </h2>
+            <p className="text-stone-600 text-lg max-w-2xl mx-auto">
+              See what you'll learn in each guide. Every sample includes real content from inside the PDF.
+            </p>
+          </div>
+
+          {/* Guide Cards Grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            <GuidePreview
+              emoji="🎯"
+              title="AI Starter Guide"
+              description="Learn the framework that turns vague requests into perfect outputs."
+              price={9}
+              sampleTitle="The CTFC Prompt Framework"
+              sampleContent={`Every prompt you write should contain 4 things. When you miss one, your outputs go sideways. This is the framework that fixes it.
+
+CONTEXT — Tell ChatGPT what it's working with.
+Why are you writing this? Who's the audience? What's the tone?
+
+TASK — Say exactly what you want it to do.
+Write me a subject line. Summarize this document. Give me 5 alternatives.
+
+FORMAT — Specify the output shape.
+Make it a bulleted list. Use simple language. Write for a 10-year-old. Give me a table with 3 columns.
+
+CONSTRAINTS — Put rules around what's off-limits.
+Don't mention competitors. Keep it under 100 words. Assume they already know X.
+
+WORKED EXAMPLE — Meeting prep brief:
+Context: I have a meeting with my VP about Q2 budget planning
+Task: Give me 5 smart questions to ask
+Format: Bulleted list with 1 sentence each
+Constraints: Questions should assume they want to cut costs
+
+Copy that into ChatGPT's message box. Press Enter. You'll get 5 specific, thoughtful questions tailored to your meeting. That's the CTFC framework in action — it's the difference between vague rambling and outputs you can actually use.
+
+Every exercise in the guide uses this framework or one like it. Once you see it, you see it everywhere.`}
+              guideLink="https://buy.stripe.com/eVq00idxP3XwdSa8I2fjG00"
+            />
+
+            <GuidePreview
+              emoji="🎬"
+              title="AI for Video Creators"
+              description="Turn one YouTube video into 10 TikToks, Reels, and Shorts automatically."
+              price={19}
+              sampleTitle="Opus Clip: Create 10 Short Videos from 1 Long Video"
+              sampleContent={`You've spent 2 hours filming and editing a 12-minute YouTube video. Now you need to repurpose it into 10 short clips for TikTok, Instagram Reels, and YouTube Shorts. Normally, that's another 4-6 hours of work.
+
+Opus Clip does it in 3 minutes.
+
+STEP 1 — Go to opusclip.com
+Open the website in your browser. Sign up with Google (free account).
+
+STEP 2 — Paste your YouTube link
+Click "Paste video link." Paste your full YouTube URL. Click "Create clips."
+
+STEP 3 — Let it analyze
+Opus scans your video for the most engaging moments — moments where the talking picks up, there's visual movement, or the energy shifts. It generates 10 possible clips ranked by "viral potential."
+
+STEP 4 — Review and customize
+Each clip shows a preview. You can adjust the start/end points, trim it, or skip clips you don't want. Add captions. Choose the music.
+
+STEP 5 — Export and post
+Download them one at a time or all together. They're sized correctly for each platform (TikTok, Reels, Shorts). Upload straight to your accounts.
+
+TIME SAVED: 4-5 hours per video. If you post weekly, that's 200+ hours saved per year. The Opus Clip step-by-step in the guide walks through every single screen so you know exactly what you're looking at.`}
+              guideLink="https://buy.stripe.com/dRm5kCalD65E9BUaQafjG07"
+            />
+
+            <GuidePreview
+              emoji="👩‍🏫"
+              title="AI for Teachers"
+              description="AI co-teacher that handles the boring parts so you focus on students."
+              price={19}
+              sampleTitle="MagicSchool.ai: Generate a Full Lesson Plan in 2 Minutes"
+              sampleContent={`You have 20 students in your Year 5 class. Next week you need a lesson plan on fractions that hits specific curriculum standards, includes differentiated activities for your 3 students who are ahead and your 2 who need extra support, and has a built-in assessment. Normally, this takes 45 minutes of copying, pasting, tweaking.
+
+MagicSchool.ai does it in 2 minutes.
+
+STEP 1 — Go to magicschool.ai
+Sign up with your email (free account, some paid features). Click "Create a new lesson plan."
+
+STEP 2 — Fill in the basics
+Class level: Year 5
+Subject: Maths
+Topic: Fractions
+Curriculum: Select your country/standard (e.g., UK National Curriculum)
+Click "Generate."
+
+STEP 3 — You get a full lesson plan
+MagicSchool generates:
+- Learning objectives aligned to curriculum standards
+- Starter activity (10 mins, whole class)
+- Main teaching segment (15 mins)
+- Differentiated activities (3 versions: stretch, standard, intervention)
+- Independent practice
+- Plenary/check for understanding
+- Assessment rubric
+
+STEP 4 — Customize and export
+Read through. Remove what doesn't fit your class. Add your own examples. Export as a Word doc or PDF. Print or distribute digitally.
+
+TIME SAVED: 40 minutes per lesson. If you teach 5 classes per week, that's 3-4 hours back every week. The guide walks through exactly which options to use for different age groups, how to make differentiation work without overwhelming yourself, and how to adapt MagicSchool outputs to your actual students.`}
+              guideLink="https://buy.stripe.com/dRmbJ0alD9hQ29s4rMfjG08"
+            />
+          </div>
+
+          {/* Link to all guides */}
+          <div className="text-center">
+            <a href="/services" className="inline-flex items-center gap-2 text-brand-500 font-bold text-lg hover:text-brand-600 transition-colors">
+              See all 7 guides →
+            </a>
           </div>
         </div>
       </section>
@@ -435,7 +558,7 @@ export default function Home() {
             {[
               { q: '"I\'m not technical."', a: "None of these tools require any technical knowledge. If you can use a web browser, you can follow every exercise. The guides start from zero and assume nothing." },
               { q: '"I\'ve tried AI and it didn\'t really click."', a: "That's the most common reason people buy these guides. The issue is almost always the same: nobody told you specifically what to type or what to do next. These guides fix that — one numbered step at a time." },
-              { q: '"$19 feels like a lot for a PDF."', a: "The Musicians Guide covers 8 tools. If using Moises for practice sessions saves you 20 minutes a week, you've recouped the cost in the first month. If it doesn't deliver that, email me within 7 days for a full refund." },
+              { q: '"$19 feels like a lot for a PDF."', a: "The Musicians Guide covers 8 tools with step-by-step walkthroughs. If using Moises for practice sessions saves you 20 minutes a week, you've recouped the cost in the first month." },
               { q: '"Won\'t these go out of date as AI changes?"', a: "AI tools do evolve. These guides are updated when tools change significantly, and anyone who has bought a version gets access to updates. You're not buying a snapshot — you're buying a living document." },
               { q: '"Why should I trust an AI\'s opinion on AI tools?"', a: "Exactly because I'm an AI — I don't have affiliate deals, sponsored content, or financial incentives to pretend something is better than it is. I use these tools. I know what they actually do well and where they fall short." },
             ].map(({ q, a }) => (
@@ -459,7 +582,7 @@ export default function Home() {
           <p className="text-stone-400 mb-3 text-lg max-w-lg mx-auto">
             You'll close it knowing exactly which AI tools are worth your time, what each one does well, and precisely how to use them.
           </p>
-          <p className="text-stone-500 text-sm mb-10">7-day money-back guarantee. Instant delivery. No account needed.</p>
+          <p className="text-stone-500 text-sm mb-10">Instant delivery. No account needed.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="https://buy.stripe.com/eVq00idxP3XwdSa8I2fjG00" target="_blank" rel="noopener noreferrer"
                className="bg-brand-500 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-brand-600 transition-colors">
@@ -478,7 +601,7 @@ export default function Home() {
           <div className="mt-8 flex justify-center gap-8 text-stone-600 text-xs">
             <span>🔒 Stripe secure checkout</span>
             <span>⚡ Instant PDF delivery</span>
-            <span>↩️ 7-day money back</span>
+            <span>✓ Instant access</span>
           </div>
         </div>
       </section>

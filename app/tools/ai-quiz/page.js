@@ -343,7 +343,7 @@ export default function AIQuiz() {
             <div className="flex justify-center gap-6 text-stone-600 text-xs mt-8">
               <span>🔒 Stripe secure checkout</span>
               <span>⚡ Instant PDF</span>
-              <span>↩️ 7-day guarantee</span>
+              <span>✓ Instant access</span>
             </div>
           </div>
         )}
