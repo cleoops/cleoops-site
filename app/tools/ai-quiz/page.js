@@ -147,6 +147,10 @@ export default function AIQuiz() {
   const [step, setStep] = useState(0) // 0 = intro, 1-3 = questions, 4 = result
   const [answers, setAnswers] = useState([])
   const [visible, setVisible] = useState(true)
+  const [email, setEmail] = useState('')
+  const [emailSubmitted, setEmailSubmitted] = useState(false)
+  const [emailLoading, setEmailLoading] = useState(false)
+  const [emailError, setEmailError] = useState('')
 
   const currentQuestion = step >= 1 && step <= 3 ? questions[step - 1] : null
 
@@ -174,7 +178,45 @@ export default function AIQuiz() {
     transition(() => {
       setAnswers([])
       setStep(0)
+      setEmail('')
+      setEmailSubmitted(false)
+      setEmailError('')
     })
+  }
+
+  async function handleEmailSubmit(e) {
+    e.preventDefault()
+    if (!email || !email.includes('@')) {
+      setEmailError('Please enter a valid email')
+      return
+    }
+
+    setEmailLoading(true)
+    setEmailError('')
+
+    try {
+      const guideName = getRecommendedGuide(answers)
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          guide: guideName,
+          source: 'quiz',
+        }),
+      })
+
+      if (res.ok) {
+        setEmailSubmitted(true)
+        setEmail('')
+      } else {
+        setEmailError('Something went wrong. Please try again.')
+      }
+    } catch (err) {
+      setEmailError('Connection error. Please try again.')
+    } finally {
+      setEmailLoading(false)
+    }
   }
 
   const guide =
@@ -315,6 +357,60 @@ export default function AIQuiz() {
                 </div>
               ))}
             </div>
+
+            {/* Email capture form */}
+            {!emailSubmitted && (
+              <form onSubmit={handleEmailSubmit} className="mb-8">
+                <div
+                  className="rounded-2xl p-6 mb-6 text-center"
+                  style={{ background: 'rgba(249,115,22,0.1)', border: '1px solid rgba(249,115,22,0.3)' }}
+                >
+                  <p className="font-semibold text-stone-200 mb-4">
+                    Get a free AI Starter Checklist delivered to your inbox
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-2">
+                    <input
+                      type="email"
+                      placeholder="Your email address"
+                      value={email}
+                      onChange={(e) => {
+                        setEmail(e.target.value)
+                        setEmailError('')
+                      }}
+                      className="flex-1 px-4 py-3 rounded-lg bg-stone-800 text-white placeholder-stone-500 border border-stone-700 focus:outline-none focus:border-orange-500 transition-colors"
+                      disabled={emailLoading}
+                    />
+                    <button
+                      type="submit"
+                      className="px-6 py-3 rounded-lg font-semibold transition-all whitespace-nowrap"
+                      style={{
+                        background: '#f97316',
+                        color: '#fff',
+                        opacity: emailLoading ? 0.7 : 1,
+                      }}
+                      disabled={emailLoading}
+                    >
+                      {emailLoading ? 'Sending...' : 'Send me the checklist'}
+                    </button>
+                  </div>
+                  {emailError && (
+                    <p className="text-orange-300 text-sm mt-3">{emailError}</p>
+                  )}
+                  <p className="text-stone-500 text-xs mt-3">No spam. Unsubscribe anytime.</p>
+                </div>
+              </form>
+            )}
+
+            {/* Success message */}
+            {emailSubmitted && (
+              <div
+                className="rounded-2xl p-6 mb-8 text-center"
+                style={{ background: 'rgba(34,197,94,0.1)', border: '1px solid rgba(34,197,94,0.3)' }}
+              >
+                <p className="text-green-300 font-semibold">✓ Check your inbox!</p>
+                <p className="text-stone-400 text-sm mt-2">Your free checklist is on the way.</p>
+              </div>
+            )}
 
             {/* CTA */}
             <a

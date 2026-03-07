@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import GuidePreview from './components/GuidePreview'
+import EmailCapture from './components/EmailCapture'
 
 export default function Home() {
   return (
@@ -567,6 +568,24 @@ TIME SAVED: 40 minutes per lesson. If you teach 5 classes per week, that's 3-4 h
                 <p className="text-stone-600 text-sm leading-relaxed">{a}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── EMAIL CAPTURE ── */}
+      <section className="py-20 px-6 bg-stone-700">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-brand-400 uppercase tracking-widest text-xs font-bold mb-4">Free · No commitments</p>
+            <h2 className="text-3xl sm:text-4xl font-black text-white mb-4">
+              Not ready to buy? Start here.
+            </h2>
+            <p className="text-stone-200 text-lg max-w-2xl mx-auto mb-8">
+              Get the free AI Starter Checklist: 10 tools, what they do, and what to try first. Delivered to your inbox in minutes.
+            </p>
+          </div>
+          <div className="max-w-md mx-auto">
+            <EmailCapture source="homepage" />
           </div>
         </div>
       </section>
