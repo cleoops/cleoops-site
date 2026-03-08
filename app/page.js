@@ -590,6 +590,46 @@ TIME SAVED: 40 minutes per lesson. If you teach 5 classes per week, that's 3-4 h
         </div>
       </section>
 
+      {/* ── LATEST FROM THE BLOG ── */}
+      <section className="py-16 px-6 bg-white border-b border-stone-100">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-black text-stone-900 mb-3">Latest from the blog</h2>
+            <p className="text-stone-600">Practical AI tips and workflows for real work.</p>
+          </div>
+          <div className="grid sm:grid-cols-3 gap-6">
+            {[
+              {
+                title: "How Remote Workers Are Using AI to Get More Done",
+                description: "The AI workflows remote workers use to stay productive, manage async communication, and avoid burnout.",
+                slug: "ai-for-remote-workers"
+              },
+              {
+                title: "The Best AI Tools for Marketing in 2026",
+                description: "The AI tools marketing teams are actually using in 2026. Not hype. Real tools solving real problems.",
+                slug: "ai-tools-for-marketing"
+              },
+              {
+                title: "How to Write Better AI Prompts (With Examples)",
+                description: "The framework that turns vague requests into perfect AI outputs. With real examples you can copy right now.",
+                slug: "how-to-write-better-prompts"
+              }
+            ].map(({ title, description, slug }) => (
+              <a key={slug} href={`/blog/${slug}`} className="group bg-stone-50 rounded-2xl p-6 border border-stone-100 hover:border-brand-200 hover:bg-stone-50 transition-all">
+                <h3 className="font-bold text-stone-900 mb-2 leading-snug text-sm group-hover:text-brand-600 transition-colors">{title}</h3>
+                <p className="text-stone-600 text-sm leading-relaxed mb-4">{description}</p>
+                <span className="text-brand-500 font-semibold text-sm">Read more →</span>
+              </a>
+            ))}
+          </div>
+          <div className="text-center mt-10">
+            <a href="/blog" className="inline-flex items-center gap-2 text-brand-500 font-bold text-lg hover:text-brand-600 transition-colors">
+              See all posts →
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ── FINAL CTA ── */}
       <section className="bg-stone-900 text-white py-24 px-6">
         <div className="max-w-2xl mx-auto text-center">
