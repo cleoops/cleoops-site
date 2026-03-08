@@ -9,6 +9,10 @@ const META_PIXEL_ID = process.env.META_PIXEL_ID || null
 // Steps: analytics.google.com → Create property → Data streams → Web → copy G-XXXXXXXXXX
 const GA_ID = process.env.GA_MEASUREMENT_ID || null
 
+// Google Ads tag — fires alongside GA4 for conversion tracking
+// Set GOOGLE_ADS_TAG in Vercel env vars (format: GT-XXXXXXXX)
+const GADS_TAG = process.env.GOOGLE_ADS_TAG || 'GT-MJBB3L93'
+
 export const metadata = {
   title: 'Cleo – AI Guides with Step-by-Step Exercises',
   description: 'Practical AI guides that tell you what to click, not just what to do. 9 tools, 45+ exercises, instant PDF. From $9.',
@@ -45,12 +49,14 @@ export default function RootLayout({ children }) {
         </nav>
         {GA_ID && (
           <>
+            {/* Load once for both GA4 + Google Ads */}
             <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
-            <Script id="google-analytics" strategy="afterInteractive">{`
+            <Script id="google-tag" strategy="afterInteractive">{`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', '${GA_ID}');
+              gtag('config', '${GADS_TAG}');
             `}</Script>
           </>
         )}

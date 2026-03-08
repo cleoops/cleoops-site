@@ -1,9 +1,32 @@
-export const metadata = {
-  title: 'Thank You — Cleo',
-  description: 'Your purchase is confirmed. Your AI guide is on its way.',
-}
+'use client'
+import { useEffect } from 'react'
+import Script from 'next/script'
+
+// Conversion tracking fires on the thank-you page after purchase.
+// GOOGLE_ADS_CONVERSION_LABEL must be set in Vercel env vars.
+// Find it in Google Ads → Goals → Conversions → your conversion action → Tag setup.
+// Format: AW-XXXXXXXXXX/XXXXXXXXXXXX
+const ADS_CONVERSION_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID || 'AW-CONVERSION_ID'
+const ADS_CONVERSION_LABEL = process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL || 'CONVERSION_LABEL'
 
 export default function ThankYouPage() {
+  useEffect(() => {
+    // Fire Google Ads purchase conversion
+    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+      window.gtag('event', 'conversion', {
+        send_to: `${ADS_CONVERSION_ID}/${ADS_CONVERSION_LABEL}`,
+        transaction_id: '',  // optional: pass Stripe charge ID if available
+      })
+    }
+    // Fire GA4 purchase event
+    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+      window.gtag('event', 'purchase', {
+        currency: 'USD',
+        value: 9.00,  // default guide price — update if dynamic pricing added
+      })
+    }
+  }, [])
+
   return (
     <div className="min-h-screen bg-stone-50 flex items-center justify-center px-6">
       <div className="max-w-xl w-full text-center">
