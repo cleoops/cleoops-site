@@ -45,66 +45,53 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── LATEST NEWS — 3 Column Grid ── */}
-      <section className="py-16 px-6 bg-[#f8f9fc]">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-12">
-            <h2 className="text-2xl font-black text-[#0f172a] mb-2">Latest News</h2>
-            <p className="text-[#64748b]">AI news and analysis from this week</p>
+      {/* ── LATEST NEWS — Accenture-style portrait cards ── */}
+      <section className="py-16 px-6 bg-[#000]">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-end justify-between mb-10">
+            <h2 className="text-3xl font-black text-white">What&apos;s trending in AI</h2>
+            <a href="/blog" className="flex items-center gap-2 text-white text-sm font-semibold hover:text-[#60a5fa] transition-colors">
+              View all <span className="bg-[#2563eb] rounded-full w-6 h-6 flex items-center justify-center text-xs">→</span>
+            </a>
           </div>
 
           {latestPosts.length > 0 ? (
-            <div className="grid sm:grid-cols-3 gap-6 mb-8">
-              {latestPosts.map(post => (
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {latestPosts.slice(0, 4).map(post => (
                 <a
                   key={post.slug}
                   href={`/blog/${post.slug}`}
-                  className="group bg-white border border-[#e2e8f0] rounded-xl overflow-hidden hover:border-[#2563eb] transition-all hover:shadow-md"
+                  className="group flex flex-col bg-[#111] rounded-xl overflow-hidden hover:bg-[#1a1a1a] transition-all"
+                  style={{ minHeight: '420px' }}
                 >
-                  <div className="aspect-video relative overflow-hidden bg-[#0d1117]">
+                  {/* TEXT TOP */}
+                  <div className="p-5 flex-1">
+                    <p className="text-[#60a5fa] text-xs font-bold tracking-widest uppercase mb-3">
+                      {post.category || (post.tags && post.tags[0]) || 'NEWS'}
+                    </p>
+                    <h3 className="text-white font-black text-lg leading-snug group-hover:text-[#60a5fa] transition-colors line-clamp-3">
+                      {post.title}
+                    </h3>
+                  </div>
+                  {/* IMAGE BOTTOM */}
+                  <div className="relative h-48 overflow-hidden">
                     <Image
                       src={getCoverImage(post.slug, post.tags || [])}
                       alt={post.title}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      sizes="(max-width: 768px) 100vw, 33vw"
+                      sizes="(max-width: 768px) 50vw, 25vw"
                     />
-                  </div>
-                  <div className="p-6">
-                    {post.tags && post.tags.length > 0 && (
-                      <div className="mb-3 flex gap-2">
-                        <span className="inline-block bg-[#f0f4ff] text-[#2563eb] text-xs font-bold px-2 py-1 rounded border border-[#c7d9ff]">
-                          {post.tags[0]}
-                        </span>
-                      </div>
-                    )}
-                    <h3 className="text-lg font-bold text-[#0f172a] mb-2 leading-snug group-hover:text-[#2563eb] transition-colors line-clamp-2">
-                      {post.title}
-                    </h3>
-                    <p className="text-sm text-[#64748b] leading-relaxed mb-4 line-clamp-2">
-                      {post.description}
-                    </p>
-                    <div className="flex justify-between items-center pt-4 border-t border-[#e2e8f0]">
-                      <time className="text-xs text-[#64748b]">
-                        {new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
-                      </time>
-                      <span className="text-[#2563eb] font-semibold text-sm">Read →</span>
-                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                   </div>
                 </a>
               ))}
             </div>
           ) : (
-            <div className="bg-white rounded-xl p-12 text-center border border-[#e2e8f0]">
-              <p className="text-[#64748b]">Blog posts coming soon.</p>
+            <div className="bg-[#111] rounded-xl p-12 text-center">
+              <p className="text-[#64748b]">Stories coming soon.</p>
             </div>
           )}
-
-          <div className="text-center">
-            <a href="/blog" className="text-[#2563eb] font-semibold hover:underline">
-              View all news →
-            </a>
-          </div>
         </div>
       </section>
 
