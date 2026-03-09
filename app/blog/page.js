@@ -1,4 +1,6 @@
+import Image from 'next/image'
 import { getAllPosts, formatDate } from '../../lib/blog'
+import { getCoverImage } from '@/lib/images'
 import AdSlot from '../components/AdSlot'
 
 export const metadata = {
@@ -56,17 +58,16 @@ export default function BlogIndex() {
                 >
                   <div className="bg-white border border-[#e2e8f0] rounded-2xl overflow-hidden hover:border-[#2563eb] hover:shadow-lg transition-all">
                     <div className="grid sm:grid-cols-2 gap-0">
-                      {/* Image/Placeholder */}
-                      <div className="bg-gradient-to-br from-[#2563eb] to-[#1e40af] relative min-h-[300px] flex items-center justify-center overflow-hidden">
-                        <div className="absolute inset-0 opacity-10 bg-grid-pattern"></div>
-                        <div className="relative text-center z-10">
-                          <div className="text-6xl font-black text-[#f0f4ff] mb-4">
-                            {featuredPost.title.charAt(0)}
-                          </div>
-                          <p className="text-[#c7d9ff] text-sm font-semibold px-8 line-clamp-2">
-                            {featuredPost.title}
-                          </p>
-                        </div>
+                      {/* Image */}
+                      <div className="aspect-[16/7] sm:aspect-auto relative overflow-hidden bg-[#0d1117]">
+                        <Image
+                          src={getCoverImage(featuredPost.slug, featuredPost.tags || [])}
+                          alt={featuredPost.title}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                          sizes="(max-width: 640px) 100vw, 50vw"
+                          priority
+                        />
                       </div>
 
                       {/* Content */}
@@ -118,12 +119,15 @@ export default function BlogIndex() {
                         href={`/blog/${post.slug}`}
                         className="group bg-white border border-[#e2e8f0] rounded-xl overflow-hidden hover:border-[#2563eb] hover:shadow-md transition-all flex flex-col"
                       >
-                        {/* Image/Placeholder */}
-                        <div className="bg-gradient-to-br from-[#2563eb] to-[#1e40af] aspect-video relative overflow-hidden flex items-center justify-center">
-                          <div className="absolute inset-0 opacity-10 bg-grid-pattern"></div>
-                          <div className="text-5xl font-black text-[#f0f4ff] relative z-10">
-                            {post.title.charAt(0)}
-                          </div>
+                        {/* Image */}
+                        <div className="aspect-video relative overflow-hidden bg-[#0d1117]">
+                          <Image
+                            src={getCoverImage(post.slug, post.tags || [])}
+                            alt={post.title}
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-500"
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          />
                         </div>
 
                         {/* Content */}

@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { getAllPosts } from '@/lib/blog'
+import { getCoverImage } from '@/lib/images'
 import EmailCapture from './components/EmailCapture'
 import AdSlot from './components/AdSlot'
 
@@ -11,14 +12,24 @@ export default function Home() {
     <div className="bg-[#f8f9fc]">
 
       {/* ── HERO — Publication Statement ── */}
-      <section className="bg-white border-b border-[#e2e8f0] py-20 px-6">
-        <div className="max-w-4xl mx-auto">
+      <section className="relative overflow-hidden bg-[#0d1117] min-h-[520px] flex items-center border-b border-[#1a1f2e] py-20 px-6">
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1600&auto=format&fit=crop&q=60"
+            alt=""
+            fill
+            className="object-cover opacity-20"
+            priority
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0d1117] via-[#0d1117]/80 to-transparent" />
+        <div className="max-w-4xl mx-auto relative z-10">
           <div className="mb-12">
-            <span className="inline-block bg-[#f0f4ff] text-[#2563eb] text-xs font-bold px-3 py-1 rounded-full mb-6 border border-[#c7d9ff]">INDEPENDENT PUBLICATION</span>
-            <h1 className="text-5xl sm:text-6xl font-black text-[#0f172a] leading-[1.1] mb-6">
+            <span className="inline-block bg-[#2563eb]/20 text-white text-xs font-bold px-3 py-1 rounded-full mb-6 border border-[#2563eb]/50]">INDEPENDENT PUBLICATION</span>
+            <h1 className="text-5xl sm:text-6xl font-black text-white leading-[1.1] mb-6">
               The Independent AI Resource
             </h1>
-            <p className="text-xl text-[#64748b] max-w-2xl leading-relaxed">
+            <p className="text-xl text-[#94a3b8] max-w-2xl leading-relaxed">
               News, guides, and strategy for people who actually use AI to get work done. No hype. No affiliate bias. Practical, step-by-step.
             </p>
           </div>
@@ -26,7 +37,7 @@ export default function Home() {
             <button className="px-6 py-3 bg-[#2563eb] text-white font-semibold rounded-lg hover:bg-[#1d4ed8] transition-colors">
               Subscribe to newsletter
             </button>
-            <a href="/services" className="px-6 py-3 border border-[#e2e8f0] text-[#0f172a] font-semibold rounded-lg hover:border-[#64748b] transition-colors">
+            <a href="/services" className="px-6 py-3 border border-white text-white font-semibold rounded-lg hover:border-[#94a3b8] transition-colors">
               Browse guides
             </a>
           </div>
@@ -49,11 +60,14 @@ export default function Home() {
                   href={`/blog/${post.slug}`}
                   className="group bg-white border border-[#e2e8f0] rounded-xl overflow-hidden hover:border-[#2563eb] transition-all hover:shadow-md"
                 >
-                  <div className="aspect-video bg-gradient-to-br from-[#2563eb] to-[#1e40af] relative overflow-hidden">
-                    <div className="absolute inset-0 opacity-10 bg-grid-pattern"></div>
-                    <div className="absolute inset-0 flex items-center justify-center text-[#f0f4ff] text-4xl font-black">
-                      {post.title.charAt(0)}
-                    </div>
+                  <div className="aspect-video relative overflow-hidden bg-[#0d1117]">
+                    <Image
+                      src={getCoverImage(post.slug, post.tags || [])}
+                      alt={post.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
                   </div>
                   <div className="p-6">
                     {post.tags && post.tags.length > 0 && (
