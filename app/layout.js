@@ -13,6 +13,9 @@ const GA_ID = process.env.GA_MEASUREMENT_ID || null
 // Set GOOGLE_ADS_TAG in Vercel env vars (format: GT-XXXXXXXX)
 const GADS_TAG = process.env.GOOGLE_ADS_TAG || 'GT-MJBB3L93'
 
+// Google AdSense publisher ID — set NEXT_PUBLIC_ADSENSE_PUBLISHER_ID in Vercel env vars
+const ADSENSE_PUB = process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || null
+
 export const metadata = {
   title: 'Cleo – AI Guides with Step-by-Step Exercises',
   description: 'Practical AI guides that tell you what to click, not just what to do. 9 tools, 45+ exercises, instant PDF. From $9.',
@@ -59,6 +62,14 @@ export default function RootLayout({ children }) {
               gtag('config', '${GADS_TAG}');
             `}</Script>
           </>
+        )}
+        {ADSENSE_PUB && (
+          <Script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_PUB}`}
+            crossOrigin="anonymous"
+            strategy="afterInteractive"
+          />
         )}
         {META_PIXEL_ID && (
           <>

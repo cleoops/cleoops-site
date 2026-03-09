@@ -1,5 +1,9 @@
 import { getPostBySlug, getAllPosts, formatDate } from '../../../lib/blog'
 import { notFound } from 'next/navigation'
+import AdSlot from '../../components/AdSlot'
+
+const AD_TOP    = process.env.NEXT_PUBLIC_ADSENSE_SLOT_BLOG_TOP    || 'PENDING'
+const AD_BOTTOM = process.env.NEXT_PUBLIC_ADSENSE_SLOT_BLOG_BOTTOM || 'PENDING'
 
 export async function generateStaticParams() {
   const posts = getAllPosts()
@@ -52,6 +56,9 @@ export default function BlogPost({ params }) {
         </p>
       </header>
 
+      {/* Ad — top */}
+      <AdSlot slotId={AD_TOP} />
+
       {/* Article body */}
       <div
         className="prose prose-stone prose-lg max-w-none
@@ -70,6 +77,9 @@ export default function BlogPost({ params }) {
           prose-hr:border-stone-200"
         dangerouslySetInnerHTML={{ __html: post.content }}
       />
+
+      {/* Ad — bottom */}
+      <AdSlot slotId={AD_BOTTOM} />
 
       {/* Footer */}
       <div className="mt-12 pt-8 border-t border-stone-200">
