@@ -11,8 +11,8 @@ export function SchemaOrganization() {
     "description": "Independent AI resource for professionals, creators, and business owners. Practical guides, tool reviews, and industry strategy.",
     "founder": {
       "@type": "Person",
-      "name": "Andrew Goode",
-      "jobTitle": "AI Strategist",
+      "name": "Cleoops Editorial Team",
+      "jobTitle": "Independent AI Analysis",
       "url": "https://cleoops.com/about"
     },
     "sameAs": [
@@ -49,9 +49,9 @@ export function SchemaBlogPost({ post, url }) {
     "dateModified": post.date,
     "author": {
       "@type": "Person",
-      "name": "Andrew Goode",
+      "name": "Cleoops Editorial",
       "url": "https://cleoops.com/about",
-      "jobTitle": "AI Strategist"
+      "jobTitle": "Independent AI Analysis"
     },
     "publisher": {
       "@type": "Organization",
