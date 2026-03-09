@@ -1,6 +1,7 @@
 import { getPostBySlug, getAllPosts, formatDate } from '../../../lib/blog'
 import { notFound } from 'next/navigation'
 import AdSlot from '../../components/AdSlot'
+import Comments from '../../components/Comments'
 import { SchemaBlogPost, SchemaBreadcrumb } from '../../components/SchemaMarkup'
 
 const AD_TOP    = process.env.NEXT_PUBLIC_ADSENSE_SLOT_BLOG_TOP    || 'PENDING'
@@ -90,8 +91,11 @@ export default function BlogPost({ params }) {
       {/* Ad — bottom */}
       <AdSlot slotId={AD_BOTTOM} />
 
+      {/* Comments — login required via Disqus (Google, Facebook, Twitter, email) */}
+      <Comments slug={post.slug} title={post.title} />
+
       {/* Footer */}
-      <div className="mt-12 pt-8 border-t border-stone-200">
+      <div className="mt-8 pt-8 border-t border-stone-200">
         <a href="/blog" className="text-sm text-stone-500 hover:text-stone-800 transition-colors">
           ← More articles
         </a>

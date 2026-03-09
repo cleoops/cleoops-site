@@ -260,7 +260,7 @@ export default function Home() {
       </section>
 
       {/* ── EMAIL CAPTURE ── */}
-      <section className="py-20 px-6 bg-[#0d1117] border-b border-[#1a1f2e]">
+      <section id="newsletter" className="py-20 px-6 bg-[#0d1117] border-b border-[#1a1f2e]">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-[#60a5fa] uppercase tracking-widest text-xs font-bold mb-4">Free · No spam</p>
