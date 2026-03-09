@@ -12,8 +12,7 @@ export function SchemaOrganization() {
     "founder": {
       "@type": "Person",
       "name": "Andrew Goode",
-      "jobTitle": "SVP Strategy",
-      "worksFor": { "@type": "Organization", "name": "OpenX" },
+      "jobTitle": "AI Strategist",
       "url": "https://cleoops.com/about"
     },
     "sameAs": [
@@ -52,7 +51,7 @@ export function SchemaBlogPost({ post, url }) {
       "@type": "Person",
       "name": "Andrew Goode",
       "url": "https://cleoops.com/about",
-      "jobTitle": "SVP Strategy, OpenX"
+      "jobTitle": "AI Strategist"
     },
     "publisher": {
       "@type": "Organization",
