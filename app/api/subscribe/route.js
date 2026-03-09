@@ -17,7 +17,7 @@ export async function POST(request) {
       },
       body: JSON.stringify({
         email_address: email,
-        status: 'subscribed',
+        status: 'pending',
         merge_fields: {
           FNAME: firstName || '',
           SOURCE: source || 'website',
@@ -29,7 +29,7 @@ export async function POST(request) {
   )
 
   if (response.ok || response.status === 400) {
-    // 400 = already subscribed, treat as success
+    // 400 = already subscribed/pending, treat as success
     return NextResponse.json({ success: true })
   }
 
