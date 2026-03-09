@@ -170,9 +170,9 @@ export default function Home() {
           <p className="text-xs font-bold text-[#60a5fa] tracking-widest uppercase mb-8">AI By The Numbers</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { stat: '$200B+', label: 'AI market size by 2025', src: 'Goldman Sachs' },
-              { stat: '400M+', label: 'ChatGPT weekly active users', src: 'OpenAI, Feb 2025' },
-              { stat: '77%', label: 'of employees use AI without employer knowledge', src: 'Microsoft WorkLab' },
+              { stat: '80/20', label: 'Technology = 20% of AI value. Work redesign = 80%', src: 'PwC, 2026' },
+              { stat: '~50%', label: 'of workplace tasks agents can now perform', src: 'PwC, 2026' },
+              { stat: '60%', label: 'of executives say Responsible AI boosts ROI', src: 'PwC, 2026' },
               { stat: '14.6%', label: 'productivity gain for knowledge workers using AI', src: 'MIT / Stanford' },
             ].map(({ stat, label, src }) => (
               <div key={stat} className="border-l-2 border-[#2563eb] pl-4">
