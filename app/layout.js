@@ -70,8 +70,8 @@ export default function RootLayout({ children }) {
         {/* Main Navigation */}
         <nav className="sticky top-0 z-50 bg-[#0d1117]/95 backdrop-blur-sm border-b border-[#1a1f2e]">
           <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="/" className="text-2xl font-black text-white tracking-tight">
-              CLEOOPS
+            <a href="/" className="flex items-center">
+              <img src="/cleoops-logo-full.svg" alt="Cleoops" height="38" style={{height:'38px', width:'auto'}} />
             </a>
             <div className="flex items-center gap-1 text-sm font-semibold text-gray-300">
               <a href="/blog" className="px-4 py-2 hover:text-white transition-colors">News</a>

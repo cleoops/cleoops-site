@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Background -->
+  <rect width="512" height="512" rx="80" fill="#0d1117"/>
+  
+  <!-- Outer C arc -->
+  <path d="M 340 130 
+             A 155 155 0 1 0 340 382" 
+        fill="none" stroke="#2563eb" stroke-width="44" stroke-linecap="round"/>
+  
+  <!-- Signal pulse line inside C -->
+  <polyline points="195,256 225,256 245,210 268,302 288,230 308,256 335,256" 
+            fill="none" stroke="#ffffff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

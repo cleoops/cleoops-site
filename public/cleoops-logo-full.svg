@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 180" width="760" height="180">
+  <rect width="760" height="180" fill="#0d1117"/>
+  
+  <!-- C mark with signal pulse -->
+  <path d="M 135 45 A 55 55 0 1 0 135 135" 
+        fill="none" stroke="#2563eb" stroke-width="17" stroke-linecap="round"/>
+  <polyline points="65,90 79,90 89,70 101,110 111,80 120,90 134,90" 
+            fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- CLEOOPS wordmark -->
+  <text x="175" y="115" 
+        font-family="Georgia, 'Times New Roman', serif" 
+        font-size="68" 
+        font-weight="700"
+        letter-spacing="2"
+        fill="#ffffff">CLEOOPS</text>
+  
+  <!-- Tagline -->
+  <text x="177" y="145" 
+        font-family="Arial, Helvetica, sans-serif" 
+        font-size="15" 
+        fill="#2563eb"
+        letter-spacing="5"
+        font-weight="600">AI INTELLIGENCE</text>
+</svg>
