@@ -54,19 +54,32 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-stone-50 text-stone-800 font-sans antialiased">
-        <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-stone-100">
-          <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="/" className="text-xl font-semibold text-stone-900 tracking-tight">
-              Cleo <span className="text-brand-500">•</span>
+      <body className="bg-[#f8f9fc] text-[#0f172a] font-sans antialiased">
+        {/* Utility Bar */}
+        <div className="bg-[#0d1117] border-b border-[#1a1f2e] px-6 py-2 text-xs text-gray-400 font-medium">
+          <div className="max-w-7xl mx-auto flex justify-between items-center">
+            <span>The Independent AI Resource</span>
+            <a href="https://x.com/cleoops7" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+              @cleoops7
             </a>
-            <div className="flex items-center gap-8 text-sm font-medium text-stone-600">
-              <a href="/services" className="hover:text-stone-900 transition-colors">Services</a>
-              <a href="/blog" className="hover:text-stone-900 transition-colors">Blog</a>
-              <a href="/contact" className="hover:text-stone-900 transition-colors">Contact</a>
-              <a href="/services" className="bg-brand-500 text-white px-4 py-2 rounded-full hover:bg-brand-600 transition-colors">
-                Get started
-              </a>
+          </div>
+        </div>
+
+        {/* Main Navigation */}
+        <nav className="sticky top-0 z-50 bg-[#0d1117]/95 backdrop-blur-sm border-b border-[#1a1f2e]">
+          <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/" className="text-2xl font-black text-white tracking-tight">
+              CLEOOPS
+            </a>
+            <div className="flex items-center gap-1 text-sm font-semibold text-gray-300">
+              <a href="/blog" className="px-4 py-2 hover:text-white transition-colors">News</a>
+              <a href="/services" className="px-4 py-2 hover:text-white transition-colors">Guides</a>
+              <a href="/blog" className="px-4 py-2 hover:text-white transition-colors">Reviews</a>
+              <a href="/tools" className="px-4 py-2 hover:text-white transition-colors">Tools</a>
+              <a href="#strategy" className="px-4 py-2 hover:text-white transition-colors">Strategy</a>
+              <button className="ml-4 px-6 py-2 bg-[#2563eb] text-white rounded-lg hover:bg-[#1d4ed8] transition-colors font-semibold">
+                Newsletter
+              </button>
             </div>
           </div>
         </nav>
@@ -109,13 +122,40 @@ export default function RootLayout({ children }) {
         <SchemaOrganization />
         <SchemaWebSite />
         <main>{children}</main>
-        <footer className="border-t border-stone-200 mt-24 py-12 text-sm text-stone-500">
-          <div className="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row justify-between gap-4">
-            <p>© 2026 Cleo. All rights reserved.</p>
-            <div className="flex gap-6">
-              <a href="/privacy" className="hover:text-stone-700 transition-colors">Privacy Policy</a>
-              <a href="/terms" className="hover:text-stone-700 transition-colors">Terms of Service</a>
-              <a href="/contact" className="hover:text-stone-700 transition-colors">Contact</a>
+        <footer className="border-t border-[#e2e8f0] mt-32 py-16 text-sm text-[#64748b] bg-white">
+          <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between gap-8">
+            <div>
+              <p className="font-bold text-[#0f172a] mb-1">CLEOOPS</p>
+              <p className="text-xs">The Independent AI Resource</p>
+            </div>
+            <div className="flex gap-12">
+              <div>
+                <p className="font-semibold text-[#0f172a] text-xs mb-3">Product</p>
+                <div className="flex flex-col gap-2">
+                  <a href="/services" className="hover:text-[#0f172a] transition-colors">Guides</a>
+                  <a href="/blog" className="hover:text-[#0f172a] transition-colors">News</a>
+                  <a href="/tools" className="hover:text-[#0f172a] transition-colors">Tools</a>
+                </div>
+              </div>
+              <div>
+                <p className="font-semibold text-[#0f172a] text-xs mb-3">Legal</p>
+                <div className="flex flex-col gap-2">
+                  <a href="/privacy" className="hover:text-[#0f172a] transition-colors">Privacy</a>
+                  <a href="/terms" className="hover:text-[#0f172a] transition-colors">Terms</a>
+                  <a href="/contact" className="hover:text-[#0f172a] transition-colors">Contact</a>
+                </div>
+              </div>
+              <div>
+                <p className="font-semibold text-[#0f172a] text-xs mb-3">Social</p>
+                <div className="flex flex-col gap-2">
+                  <a href="https://x.com/cleoops7" target="_blank" rel="noopener noreferrer" className="hover:text-[#0f172a] transition-colors">X / Twitter</a>
+                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#0f172a] transition-colors">LinkedIn</a>
+                </div>
+              </div>
+            </div>
+            <div className="text-right text-xs">
+              <p>© 2026 Cleoops, Inc.</p>
+              <p>All rights reserved.</p>
             </div>
           </div>
         </footer>

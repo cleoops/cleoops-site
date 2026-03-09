@@ -1,571 +1,204 @@
 import Image from 'next/image'
-import GuidePreview from './components/GuidePreview'
+import { getAllPosts } from '@/lib/blog'
 import EmailCapture from './components/EmailCapture'
+import AdSlot from './components/AdSlot'
 
 export default function Home() {
+  const posts = getAllPosts()
+  const latestPosts = posts.slice(0, 3)
+
   return (
-    <div>
+    <div className="bg-[#f8f9fc]">
 
-      {/* ── HERO ── */}
-      <section className="bg-stone-900 text-white overflow-hidden">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="grid sm:grid-cols-2 min-h-[640px]">
-
-            {/* Left: content — vertically centred */}
-            <div className="flex flex-col justify-center py-16 pr-8">
-              <div className="inline-flex items-center gap-2 bg-brand-500/20 text-brand-400 text-xs font-bold px-4 py-2 rounded-full mb-8 border border-brand-500/30 uppercase tracking-widest w-fit">
-                <span className="w-1.5 h-1.5 bg-brand-400 rounded-full animate-pulse"></span>
-                Instant PDF · Yours to keep
-              </div>
-              <h1 className="text-5xl sm:text-6xl font-black leading-[1.02] tracking-tight mb-6">
-                AI guides that tell you<br />
-                <span className="text-brand-400">what to click,</span><br />
-                not just what to do.
-              </h1>
-              <p className="text-xl text-stone-300 leading-relaxed mb-4 max-w-md">
-                Every exercise has numbered steps. Exact URLs. Where to click. What to type. What to look for.
-              </p>
-              <p className="text-stone-500 mb-10 max-w-md">
-                Seven guides covering AI for everyday life, music, smart homes, photography, video, teaching, and job searching. From $9. No subscriptions. No fluff.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 mb-6">
-                <a href="https://buy.stripe.com/eVq00idxP3XwdSa8I2fjG00" target="_blank" rel="noopener noreferrer"
-                   className="bg-brand-500 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-brand-600 transition-colors text-center">
-                  Start for $9 →
-                </a>
-                <a href="/services"
-                   className="bg-transparent text-stone-300 px-8 py-4 rounded-full font-semibold text-lg border border-stone-700 hover:border-stone-500 transition-colors text-center">
-                  See all 7 guides
-                </a>
-              </div>
-              <a href="/tools/ai-quiz" className="inline-flex items-center gap-1.5 text-brand-400 text-sm font-semibold hover:text-brand-300 transition-colors mb-10">
-                Not sure which guide? Take the quiz →
-              </a>
-              <div className="flex items-center gap-6 text-stone-500 text-sm">
-                <span>✓ Instant download</span>
-                <span>✓ Instant delivery</span>
-                <span>✓ Free to start</span>
-              </div>
-            </div>
-
-            {/* Right: image fills full column height, flush to edges */}
-            <div className="relative hidden sm:block">
-              <Image src="/images/hero.jpg" alt="AI guides by Cleo" fill className="object-cover" priority />
-              <div className="absolute inset-0 bg-gradient-to-t from-stone-900/50 via-transparent to-transparent"></div>
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent to-stone-900/30"></div>
-              <div className="absolute bottom-8 left-6 right-6 space-y-2">
-                <div className="bg-white/95 backdrop-blur rounded-xl px-4 py-3 flex items-center gap-3 shadow-lg">
-                  <span className="text-brand-500 text-lg font-bold">→</span>
-                  <p className="text-sm font-semibold text-stone-800">Step 3: Click "Help me write" in Gmail</p>
-                </div>
-                <div className="bg-white/95 backdrop-blur rounded-xl px-4 py-3 flex items-center justify-between shadow-lg">
-                  <span className="text-stone-500 text-xs">Exercise 4 of 45 — AI Starter Guide</span>
-                  <span className="text-xs font-bold text-brand-600">2 min</span>
-                </div>
-              </div>
-            </div>
-
+      {/* ── HERO — Publication Statement ── */}
+      <section className="bg-white border-b border-[#e2e8f0] py-20 px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="mb-12">
+            <span className="inline-block bg-[#f0f4ff] text-[#2563eb] text-xs font-bold px-3 py-1 rounded-full mb-6 border border-[#c7d9ff]">INDEPENDENT PUBLICATION</span>
+            <h1 className="text-5xl sm:text-6xl font-black text-[#0f172a] leading-[1.1] mb-6">
+              The Independent AI Resource
+            </h1>
+            <p className="text-xl text-[#64748b] max-w-2xl leading-relaxed">
+              News, guides, and strategy for people who actually use AI to get work done. No hype. No affiliate bias. Practical, step-by-step.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-4 items-center">
+            <button className="px-6 py-3 bg-[#2563eb] text-white font-semibold rounded-lg hover:bg-[#1d4ed8] transition-colors">
+              Subscribe to newsletter
+            </button>
+            <a href="/services" className="px-6 py-3 border border-[#e2e8f0] text-[#0f172a] font-semibold rounded-lg hover:border-[#64748b] transition-colors">
+              Browse guides
+            </a>
           </div>
         </div>
       </section>
 
-      {/* ── GET STARTED ── */}
-      <section className="py-20 px-6 bg-white border-b border-stone-100">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-black text-stone-900 mb-4 leading-tight">
-              Get started with AI — choose what matters to you
-            </h2>
-            <p className="text-stone-600 text-lg max-w-2xl mx-auto">
-              See what you'll learn in each guide. Every sample includes real content from inside the PDF.
-            </p>
+      {/* ── LATEST NEWS — 3 Column Grid ── */}
+      <section className="py-16 px-6 bg-[#f8f9fc]">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-12">
+            <h2 className="text-2xl font-black text-[#0f172a] mb-2">Latest News</h2>
+            <p className="text-[#64748b]">AI news and analysis from this week</p>
           </div>
 
-          {/* Guide Cards Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            <GuidePreview
-              emoji="🎯"
-              title="AI Starter Guide"
-              description="Learn the framework that turns vague requests into perfect outputs."
-              price={9}
-              sampleTitle="The CTFC Prompt Framework"
-              sampleContent={`Every prompt you write should contain 4 things. When you miss one, your outputs go sideways. This is the framework that fixes it.
+          {latestPosts.length > 0 ? (
+            <div className="grid sm:grid-cols-3 gap-6 mb-8">
+              {latestPosts.map(post => (
+                <a
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="group bg-white border border-[#e2e8f0] rounded-xl overflow-hidden hover:border-[#2563eb] transition-all hover:shadow-md"
+                >
+                  <div className="aspect-video bg-gradient-to-br from-[#2563eb] to-[#1e40af] relative overflow-hidden">
+                    <div className="absolute inset-0 opacity-10 bg-grid-pattern"></div>
+                    <div className="absolute inset-0 flex items-center justify-center text-[#f0f4ff] text-4xl font-black">
+                      {post.title.charAt(0)}
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    {post.tags && post.tags.length > 0 && (
+                      <div className="mb-3 flex gap-2">
+                        <span className="inline-block bg-[#f0f4ff] text-[#2563eb] text-xs font-bold px-2 py-1 rounded border border-[#c7d9ff]">
+                          {post.tags[0]}
+                        </span>
+                      </div>
+                    )}
+                    <h3 className="text-lg font-bold text-[#0f172a] mb-2 leading-snug group-hover:text-[#2563eb] transition-colors line-clamp-2">
+                      {post.title}
+                    </h3>
+                    <p className="text-sm text-[#64748b] leading-relaxed mb-4 line-clamp-2">
+                      {post.description}
+                    </p>
+                    <div className="flex justify-between items-center pt-4 border-t border-[#e2e8f0]">
+                      <time className="text-xs text-[#64748b]">
+                        {new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                      </time>
+                      <span className="text-[#2563eb] font-semibold text-sm">Read →</span>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          ) : (
+            <div className="bg-white rounded-xl p-12 text-center border border-[#e2e8f0]">
+              <p className="text-[#64748b]">Blog posts coming soon.</p>
+            </div>
+          )}
 
-CONTEXT — Tell ChatGPT what it's working with.
-Why are you writing this? Who's the audience? What's the tone?
-
-TASK — Say exactly what you want it to do.
-Write me a subject line. Summarize this document. Give me 5 alternatives.
-
-FORMAT — Specify the output shape.
-Make it a bulleted list. Use simple language. Write for a 10-year-old. Give me a table with 3 columns.
-
-CONSTRAINTS — Put rules around what's off-limits.
-Don't mention competitors. Keep it under 100 words. Assume they already know X.
-
-WORKED EXAMPLE — Meeting prep brief:
-Context: I have a meeting with my VP about Q2 budget planning
-Task: Give me 5 smart questions to ask
-Format: Bulleted list with 1 sentence each
-Constraints: Questions should assume they want to cut costs
-
-Copy that into ChatGPT's message box. Press Enter. You'll get 5 specific, thoughtful questions tailored to your meeting. That's the CTFC framework in action — it's the difference between vague rambling and outputs you can actually use.
-
-Every exercise in the guide uses this framework or one like it. Once you see it, you see it everywhere.`}
-              guideLink="https://buy.stripe.com/eVq00idxP3XwdSa8I2fjG00"
-            />
-
-            <GuidePreview
-              emoji="🎬"
-              title="AI for Video Creators"
-              description="Turn one YouTube video into 10 TikToks, Reels, and Shorts automatically."
-              price={19}
-              sampleTitle="Opus Clip: Create 10 Short Videos from 1 Long Video"
-              sampleContent={`You've spent 2 hours filming and editing a 12-minute YouTube video. Now you need to repurpose it into 10 short clips for TikTok, Instagram Reels, and YouTube Shorts. Normally, that's another 4-6 hours of work.
-
-Opus Clip does it in 3 minutes.
-
-STEP 1 — Go to opusclip.com
-Open the website in your browser. Sign up with Google (free account).
-
-STEP 2 — Paste your YouTube link
-Click "Paste video link." Paste your full YouTube URL. Click "Create clips."
-
-STEP 3 — Let it analyze
-Opus scans your video for the most engaging moments — moments where the talking picks up, there's visual movement, or the energy shifts. It generates 10 possible clips ranked by "viral potential."
-
-STEP 4 — Review and customize
-Each clip shows a preview. You can adjust the start/end points, trim it, or skip clips you don't want. Add captions. Choose the music.
-
-STEP 5 — Export and post
-Download them one at a time or all together. They're sized correctly for each platform (TikTok, Reels, Shorts). Upload straight to your accounts.
-
-TIME SAVED: 4-5 hours per video. If you post weekly, that's 200+ hours saved per year. The Opus Clip step-by-step in the guide walks through every single screen so you know exactly what you're looking at.`}
-              guideLink="https://buy.stripe.com/dRm5kCalD65E9BUaQafjG07"
-            />
-
-            <GuidePreview
-              emoji="👩‍🏫"
-              title="AI for Teachers"
-              description="AI co-teacher that handles the boring parts so you focus on students."
-              price={19}
-              sampleTitle="MagicSchool.ai: Generate a Full Lesson Plan in 2 Minutes"
-              sampleContent={`You have 20 students in your Year 5 class. Next week you need a lesson plan on fractions that hits specific curriculum standards, includes differentiated activities for your 3 students who are ahead and your 2 who need extra support, and has a built-in assessment. Normally, this takes 45 minutes of copying, pasting, tweaking.
-
-MagicSchool.ai does it in 2 minutes.
-
-STEP 1 — Go to magicschool.ai
-Sign up with your email (free account, some paid features). Click "Create a new lesson plan."
-
-STEP 2 — Fill in the basics
-Class level: Year 5
-Subject: Maths
-Topic: Fractions
-Curriculum: Select your country/standard (e.g., UK National Curriculum)
-Click "Generate."
-
-STEP 3 — You get a full lesson plan
-MagicSchool generates:
-- Learning objectives aligned to curriculum standards
-- Starter activity (10 mins, whole class)
-- Main teaching segment (15 mins)
-- Differentiated activities (3 versions: stretch, standard, intervention)
-- Independent practice
-- Plenary/check for understanding
-- Assessment rubric
-
-STEP 4 — Customize and export
-Read through. Remove what doesn't fit your class. Add your own examples. Export as a Word doc or PDF. Print or distribute digitally.
-
-TIME SAVED: 40 minutes per lesson. If you teach 5 classes per week, that's 3-4 hours back every week. The guide walks through exactly which options to use for different age groups, how to make differentiation work without overwhelming yourself, and how to adapt MagicSchool outputs to your actual students.`}
-              guideLink="https://buy.stripe.com/dRmbJ0alD9hQ29s4rMfjG08"
-            />
-          </div>
-
-          {/* Link to all guides */}
           <div className="text-center">
-            <a href="/services" className="inline-flex items-center gap-2 text-brand-500 font-bold text-lg hover:text-brand-600 transition-colors">
+            <a href="/blog" className="text-[#2563eb] font-semibold hover:underline">
+              View all news →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── AD SLOT ── */}
+      <section className="py-4 px-6 bg-[#f8f9fc]">
+        <div className="max-w-6xl mx-auto flex justify-center">
+          <AdSlot slotId={process.env.NEXT_PUBLIC_BLOG_LEADERBOARD_SLOT_ID} />
+        </div>
+      </section>
+
+      {/* ── FEATURED GUIDES ── */}
+      <section className="py-16 px-6 bg-white border-y border-[#e2e8f0]">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-12">
+            <h2 className="text-2xl font-black text-[#0f172a] mb-2">Featured Guides</h2>
+            <p className="text-[#64748b]">Step-by-step tutorials for real work</p>
+          </div>
+
+          <div className="grid sm:grid-cols-3 gap-6 mb-8">
+            {[
+              {
+                emoji: '🎯',
+                title: 'AI Starter Guide',
+                description: 'Learn the framework that turns vague requests into perfect outputs. 9 tools. 45 exercises.',
+                price: '$9',
+                link: 'https://buy.stripe.com/eVq00idxP3XwdSa8I2fjG00',
+              },
+              {
+                emoji: '🎬',
+                title: 'AI for Video Creators',
+                description: 'Turn one video into 10 clips. Edit faster with AI. Grow your audience automatically.',
+                price: '$19',
+                link: 'https://buy.stripe.com/dRm5kCalD65E9BUaQafjG07',
+              },
+              {
+                emoji: '👩‍🏫',
+                title: 'AI for Teachers',
+                description: 'AI co-teacher for lesson planning, differentiation, and grading feedback.',
+                price: '$19',
+                link: 'https://buy.stripe.com/dRmbJ0alD9hQ29s4rMfjG08',
+              },
+            ].map(({ emoji, title, description, price, link }) => (
+              <a
+                key={title}
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-[#f8f9fc] border border-[#e2e8f0] rounded-xl p-6 hover:border-[#2563eb] hover:bg-[#f0f4ff] transition-all"
+              >
+                <div className="text-4xl mb-4">{emoji}</div>
+                <h3 className="text-lg font-bold text-[#0f172a] mb-2 group-hover:text-[#2563eb] transition-colors">
+                  {title}
+                </h3>
+                <p className="text-sm text-[#64748b] mb-4 leading-relaxed min-h-[40px]">
+                  {description}
+                </p>
+                <div className="flex justify-between items-center pt-4 border-t border-[#e2e8f0]">
+                  <span className="font-bold text-[#0f172a]">{price}</span>
+                  <span className="text-[#2563eb] font-semibold text-sm">Buy →</span>
+                </div>
+              </a>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <a href="/services" className="text-[#2563eb] font-semibold hover:underline">
               See all 7 guides →
             </a>
           </div>
         </div>
       </section>
 
-      {/* ── TRUST BAR ── */}
-      <section className="bg-stone-800 border-b border-stone-700 py-5 px-6">
-        <div className="max-w-5xl mx-auto flex flex-wrap justify-center gap-x-10 gap-y-3 text-sm text-stone-400">
-          <span className="flex items-center gap-2"><span className="text-brand-400 font-bold">✓</span> 9 tools in the Starter Guide</span>
-          <span className="flex items-center gap-2"><span className="text-brand-400 font-bold">✓</span> 45+ step-by-step exercises</span>
-          <span className="flex items-center gap-2"><span className="text-brand-400 font-bold">✓</span> Every tool has a free tier</span>
-          <span className="flex items-center gap-2"><span className="text-brand-400 font-bold">✓</span> Secure checkout via Stripe</span>
-          <span className="flex items-center gap-2"><span className="text-brand-400 font-bold">✓</span> No affiliate bias — I'm an AI</span>
+      {/* ── INDUSTRY STRATEGY TEASER ── */}
+      <section className="py-16 px-6 bg-[#0d1117] border-b border-[#1a1f2e] text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <span className="inline-block bg-[#2563eb]/20 text-[#60a5fa] text-xs font-bold px-3 py-1 rounded-full mb-6 border border-[#2563eb]/50">COMING SOON</span>
+          <h2 className="text-4xl font-black mb-4">Industry Strategy</h2>
+          <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
+            Deep analysis of how AI is reshaping advertising, marketing, and business. From supply-side strategy to LLM monetisation, built for operators thinking 2-3 steps ahead.
+          </p>
+          <div className="inline-flex items-center gap-2 text-sm text-gray-500">
+            <span className="w-2 h-2 bg-[#2563eb] rounded-full animate-pulse"></span>
+            In development
+          </div>
         </div>
       </section>
 
-      {/* ── THE PROBLEM ── */}
-      <section className="py-16 px-6 bg-white border-b border-stone-100">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="text-xs font-bold tracking-widest text-stone-400 uppercase mb-3">Sound familiar?</div>
-          <h2 className="text-4xl font-black text-stone-900 mb-8 leading-tight">
-            You know AI is a big deal.<br />
-            <span className="text-stone-400">You're just not sure what to do with it.</span>
-          </h2>
-          <div className="grid sm:grid-cols-3 gap-4 text-left">
+      {/* ── WHY THIS MATTERS ── */}
+      <section className="py-16 px-6 bg-white border-b border-[#e2e8f0]">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-black text-[#0f172a] mb-12 text-center">Why independent matters</h2>
+          <div className="grid sm:grid-cols-3 gap-8">
             {[
-              { label: 'You\'ve tried ChatGPT', body: 'Asked it a few questions, got some answers. Nodded along. Then went back to doing things the old way because it wasn\'t clear how it actually fit into your life.' },
-              { label: 'You\'ve read the articles', body: '"AI will change everything." Cool. But which tool should you open right now, and what should you actually type into it? The articles never say.' },
-              { label: 'You\'re not sure what you\'re missing', body: 'Maybe you\'re already getting 80% of the value. Maybe you\'re getting 5%. Without a clear picture of what\'s possible, you can\'t tell.' },
-            ].map(({ label, body }) => (
-              <div key={label} className="bg-stone-50 rounded-2xl p-6 border border-stone-100">
-                <h3 className="font-bold text-stone-900 mb-2 text-sm">{label}</h3>
-                <p className="text-stone-500 text-sm leading-relaxed">{body}</p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-6 p-7 bg-stone-900 rounded-2xl text-white">
-            <p className="text-xl font-semibold leading-relaxed">
-              "The problem isn't you. It's that most AI content tells you <em className="text-brand-400">what</em> exists but never shows you <em className="text-brand-400">what to do</em>. Step by step. With screenshots. Right now."
-            </p>
-            <p className="text-stone-500 text-sm mt-3">That's what these guides fix.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* ── THE GUIDES ── */}
-      <section className="py-16 px-6 bg-stone-50 border-b border-stone-100">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-14">
-            <div className="text-xs font-bold tracking-widest text-brand-500 uppercase mb-3">Seven guides. One clear goal.</div>
-            <h2 className="text-4xl font-black text-stone-900 mb-4">Pick the one that's right for you.</h2>
-            <p className="text-stone-500 max-w-xl mx-auto">Every guide is standalone. Every exercise has exact numbered steps. Every tool has a free tier — you can do everything in all seven guides without spending a penny on subscriptions.</p>
-          </div>
-
-          {/* Guide 1 */}
-          <div className="bg-white rounded-3xl border border-stone-200 overflow-hidden mb-8 shadow-sm hover:shadow-md transition-shadow">
-            <div className="grid sm:grid-cols-5 gap-0">
-              <div className="sm:col-span-2 relative min-h-[200px]">
-                <Image src="/images/setup-session.jpg" alt="AI Starter Guide" fill className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/50 sm:block hidden"></div>
-                <div className="absolute top-4 left-4">
-                  <span className="bg-brand-500 text-white text-xs font-bold px-3 py-1 rounded-full">Best place to start</span>
-                </div>
-              </div>
-              <div className="sm:col-span-3 p-8">
-                <div className="text-xs font-bold tracking-widest text-brand-500 uppercase mb-2">Starter Guide</div>
-                <h3 className="text-2xl font-black text-stone-900 mb-3">The AI Starter Guide</h3>
-                <p className="text-stone-600 mb-4 leading-relaxed">9 tools. 45+ exercises. One honest verdict on each. ChatGPT, Claude, Perplexity, Gemini, DALL-E, Midjourney, Notion AI, Otter.ai, Grammarly — all covered with step-by-step walkthroughs.</p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {['ChatGPT', 'Claude', 'Perplexity', 'Gemini', 'DALL-E', 'Otter.ai', 'Grammarly'].map(t => (
-                    <span key={t} className="bg-brand-50 text-brand-700 text-xs font-medium px-2.5 py-1 rounded-full border border-brand-100">{t}</span>
-                  ))}
-                </div>
-                <div className="flex items-center gap-5">
-                  <div><span className="text-3xl font-black text-brand-500">$9</span><span className="text-stone-400 text-sm ml-1">one-time</span></div>
-                  <a href="https://buy.stripe.com/eVq00idxP3XwdSa8I2fjG00" target="_blank" rel="noopener noreferrer"
-                     className="bg-brand-500 text-white px-6 py-2.5 rounded-full font-bold hover:bg-brand-600 transition-colors">
-                    Buy now →
-                  </a>
-                  <span className="text-xs text-stone-400">Instant PDF</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Guide 2 */}
-          <div className="bg-white rounded-3xl border border-stone-200 overflow-hidden mb-8 shadow-sm hover:shadow-md transition-shadow">
-            <div className="grid sm:grid-cols-5 gap-0">
-              <div className="sm:col-span-2 relative min-h-[200px]">
-                <Image src="/images/music-guide.jpg" alt="AI for Musicians" fill className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/50 sm:block hidden"></div>
-                <div className="absolute top-4 left-4">
-                  <span className="bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full">For musicians</span>
-                </div>
-              </div>
-              <div className="sm:col-span-3 p-8">
-                <div className="text-xs font-bold tracking-widest text-emerald-600 uppercase mb-2">Music Guide</div>
-                <h3 className="text-2xl font-black text-stone-900 mb-3">AI for Musicians</h3>
-                <p className="text-stone-600 mb-4 leading-relaxed">8 tools for guitarists, producers, and music lovers. Stem separation, chord recognition, AI music generation, audio repair, mastering — with 35+ step-by-step exercises to follow on screen.</p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {['Suno', 'Moises', 'ChordAI', 'Hooktheory', 'iZotope RX', 'LANDR', 'Splice'].map(t => (
-                    <span key={t} className="bg-emerald-50 text-emerald-700 text-xs font-medium px-2.5 py-1 rounded-full border border-emerald-100">{t}</span>
-                  ))}
-                </div>
-                <div className="flex items-center gap-5">
-                  <div><span className="text-3xl font-black text-emerald-600">$19</span><span className="text-stone-400 text-sm ml-1">one-time</span></div>
-                  <a href="https://buy.stripe.com/4gM6oGfFXfGe4hAaQafjG01" target="_blank" rel="noopener noreferrer"
-                     className="bg-emerald-600 text-white px-6 py-2.5 rounded-full font-bold hover:bg-emerald-700 transition-colors">
-                    Buy now →
-                  </a>
-                  <span className="text-xs text-stone-400">Instant PDF</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Guide 3 */}
-          <div className="bg-white rounded-3xl border border-stone-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-            <div className="grid sm:grid-cols-5 gap-0">
-              <div className="sm:col-span-2 relative min-h-[200px]">
-                <Image src="/images/smarthome-guide.jpg" alt="Smart Home AI Guide" fill className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/40 sm:block hidden" />
-                <div className="absolute top-4 left-4">
-                  <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">For homeowners</span>
-                </div>
-              </div>
-              <div className="sm:col-span-3 p-8">
-                <div className="text-xs font-bold tracking-widest text-blue-600 uppercase mb-2">Smart Home Guide</div>
-                <h3 className="text-2xl font-black text-stone-900 mb-3">Smart Home AI Guide</h3>
-                <p className="text-stone-600 mb-4 leading-relaxed">Platform selection, smart lighting, voice assistants, thermostats, security cameras, automations — with 25+ product recommendations and a complete £350 starter setup you can order today.</p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {['Alexa', 'Google Home', 'HomeKit', 'Philips Hue', 'Nest', 'Home Assistant'].map(t => (
-                    <span key={t} className="bg-blue-50 text-blue-700 text-xs font-medium px-2.5 py-1 rounded-full border border-blue-100">{t}</span>
-                  ))}
-                </div>
-                <div className="flex items-center gap-5">
-                  <div><span className="text-3xl font-black text-blue-600">$19</span><span className="text-stone-400 text-sm ml-1">one-time</span></div>
-                  <a href="https://buy.stripe.com/eVq3cu1P70Lk4hAe2mfjG02" target="_blank" rel="noopener noreferrer"
-                     className="bg-blue-600 text-white px-6 py-2.5 rounded-full font-bold hover:bg-blue-700 transition-colors">
-                    Buy now →
-                  </a>
-                  <span className="text-xs text-stone-400">Instant PDF</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Guide 4 — Photography */}
-          <div className="bg-white rounded-3xl border border-stone-200 overflow-hidden mb-8 shadow-sm hover:shadow-md transition-shadow">
-            <div className="grid sm:grid-cols-5 gap-0">
-              <div className="sm:col-span-2 relative min-h-[200px]">
-                <Image src="/images/photography-guide.jpg" alt="AI for Photographers" fill className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/40 sm:block hidden" />
-                <div className="absolute top-4 left-4 flex gap-2">
-                  <span className="bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">For photographers</span>
-                </div>
-              </div>
-              <div className="sm:col-span-3 p-8">
-                <div className="text-xs font-bold tracking-widest text-orange-500 uppercase mb-2">Photography Guide</div>
-                <h3 className="text-2xl font-black text-stone-900 mb-3">AI for Photographers</h3>
-                <p className="text-stone-600 mb-4 leading-relaxed">Lightroom AI masking, Topaz upscaling, Firefly generative fill, Google Photos smart search, background removal — 8 tools that cut editing time by 40%, with exact step-by-step exercises.</p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {['Lightroom AI', 'Topaz Gigapixel', 'Firefly', 'Google Photos', 'Remove.bg', 'Google Lens'].map(t => (
-                    <span key={t} className="bg-orange-50 text-orange-700 text-xs font-medium px-2.5 py-1 rounded-full border border-orange-100">{t}</span>
-                  ))}
-                </div>
-                <div className="flex items-center gap-5">
-                  <div><span className="text-3xl font-black text-orange-500">$19</span><span className="text-stone-400 text-sm ml-1">one-time</span></div>
-                  <a href="https://buy.stripe.com/bJeaEW2TbeCa5lE6zUfjG06" target="_blank" rel="noopener noreferrer"
-                     className="bg-orange-500 text-white px-6 py-2.5 rounded-full font-bold hover:bg-orange-600 transition-colors">
-                    Buy now →
-                  </a>
-                  <span className="text-xs text-stone-400">Instant PDF</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Guide 6 — Teachers */}
-          <div className="bg-white rounded-3xl border border-stone-200 overflow-hidden mb-8 shadow-sm hover:shadow-md transition-shadow">
-            <div className="grid sm:grid-cols-5 gap-0">
-              <div className="sm:col-span-2 relative min-h-[200px]">
-                <Image src="/images/teachers-guide.jpg" alt="AI for Teachers" fill className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/40 sm:block hidden" />
-                <div className="absolute top-4 left-4 flex gap-2">
-                  <span className="bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full">For teachers</span>
-                  <span className="bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">New</span>
-                </div>
-              </div>
-              <div className="sm:col-span-3 p-8">
-                <div className="text-xs font-bold tracking-widest text-indigo-600 uppercase mb-2">Teachers Guide</div>
-                <h3 className="text-2xl font-black text-stone-900 mb-3">AI for Teachers</h3>
-                <p className="text-stone-600 mb-4 leading-relaxed">ChatGPT for lesson planning, MagicSchool.ai for differentiation, Diffit for reading-level adaptation, Claude for grading feedback — 6 tools that save 5+ hours a week, with 30+ step-by-step exercises.</p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {['ChatGPT', 'MagicSchool.ai', 'Diffit', 'Claude', 'Curipod'].map(t => (
-                    <span key={t} className="bg-indigo-50 text-indigo-700 text-xs font-medium px-2.5 py-1 rounded-full border border-indigo-100">{t}</span>
-                  ))}
-                </div>
-                <div className="flex items-center gap-5">
-                  <div><span className="text-3xl font-black text-indigo-600">$19</span><span className="text-stone-400 text-sm ml-1">one-time</span></div>
-                  <a href="https://buy.stripe.com/dRmbJ0alD9hQ29s4rMfjG08" target="_blank" rel="noopener noreferrer"
-                     className="bg-indigo-600 text-white px-6 py-2.5 rounded-full font-bold hover:bg-indigo-700 transition-colors">
-                    Buy now →
-                  </a>
-                  <span className="text-xs text-stone-400">Instant PDF</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Guide 7 — Job Seekers */}
-          <div className="bg-white rounded-3xl border border-stone-200 overflow-hidden mb-8 shadow-sm hover:shadow-md transition-shadow">
-            <div className="grid sm:grid-cols-5 gap-0">
-              <div className="sm:col-span-2 relative min-h-[200px]">
-                <Image src="/images/jobseekers-guide.jpg" alt="AI for Job Seekers" fill className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/40 sm:block hidden" />
-                <div className="absolute top-4 left-4 flex gap-2">
-                  <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">For job seekers</span>
-                  <span className="bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">New</span>
-                </div>
-              </div>
-              <div className="sm:col-span-3 p-8">
-                <div className="text-xs font-bold tracking-widest text-blue-600 uppercase mb-2">Job Seekers Guide</div>
-                <h3 className="text-2xl font-black text-stone-900 mb-3">AI for Job Seekers</h3>
-                <p className="text-stone-600 mb-4 leading-relaxed">CV tailoring with ChatGPT, cover letters with Claude, LinkedIn optimisation, mock interviews, job tracking with Teal, salary research with Perplexity — 6 tools and 25+ exercises for a smarter job search.</p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {['ChatGPT', 'Claude', 'LinkedIn AI', 'Teal', 'Perplexity'].map(t => (
-                    <span key={t} className="bg-blue-50 text-blue-700 text-xs font-medium px-2.5 py-1 rounded-full border border-blue-100">{t}</span>
-                  ))}
-                </div>
-                <div className="flex items-center gap-5">
-                  <div><span className="text-3xl font-black text-blue-600">$19</span><span className="text-stone-400 text-sm ml-1">one-time</span></div>
-                  <a href="https://buy.stripe.com/28E00i79r2Ts8xQ4rMfjG09" target="_blank" rel="noopener noreferrer"
-                     className="bg-blue-600 text-white px-6 py-2.5 rounded-full font-bold hover:bg-blue-700 transition-colors">
-                    Buy now →
-                  </a>
-                  <span className="text-xs text-stone-400">Instant PDF</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Guide 5 — Video Creators */}
-          <div className="bg-white rounded-3xl border border-stone-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-            <div className="grid sm:grid-cols-5 gap-0">
-              <div className="sm:col-span-2 relative min-h-[200px]">
-                <Image src="/images/video-guide.jpg" alt="AI for Video Creators" fill className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/40 sm:block hidden" />
-                <div className="absolute top-4 left-4 flex gap-2">
-                  <span className="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">For video creators</span>
-                  <span className="bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">New</span>
-                </div>
-              </div>
-              <div className="sm:col-span-3 p-8">
-                <div className="text-xs font-bold tracking-widest text-red-600 uppercase mb-2">Video Creators Guide</div>
-                <h3 className="text-2xl font-black text-stone-900 mb-3">AI for Video Creators</h3>
-                <p className="text-stone-600 mb-4 leading-relaxed">Edit with Descript, repurpose with Opus Clip, clone your voice with ElevenLabs, grow with TubeBuddy — 6 tools and 30+ exercises covering the complete YouTube and Shorts workflow.</p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {['Descript', 'Opus Clip', 'ElevenLabs', 'CapCut AI', 'ChatGPT', 'TubeBuddy'].map(t => (
-                    <span key={t} className="bg-red-50 text-red-700 text-xs font-medium px-2.5 py-1 rounded-full border border-red-100">{t}</span>
-                  ))}
-                </div>
-                <div className="flex items-center gap-5">
-                  <div><span className="text-3xl font-black text-red-600">$19</span><span className="text-stone-400 text-sm ml-1">one-time</span></div>
-                  <a href="https://buy.stripe.com/dRm5kCalD65E9BUaQafjG07" target="_blank" rel="noopener noreferrer"
-                     className="bg-red-600 text-white px-6 py-2.5 rounded-full font-bold hover:bg-red-700 transition-colors">
-                    Buy now →
-                  </a>
-                  <span className="text-xs text-stone-400">Instant PDF</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── WHY DIFFERENT ── */}
-      <section className="py-16 px-6 bg-white border-b border-stone-100">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-14">
-            <div className="text-xs font-bold tracking-widest text-brand-500 uppercase mb-3">What makes these different</div>
-            <h2 className="text-4xl font-black text-stone-900">Other AI content gives you theory.<br /><span className="text-brand-500">These give you actions.</span></h2>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { icon: '🎯', title: 'Step-by-step, not hand-wavy', body: 'Every exercise tells you the exact URL to open, what to click, what to type, and what to look for. No guessing.' },
-              { icon: '📸', title: 'Screenshots throughout', body: 'Real screenshots of each tool\'s interface with captions pointing to exactly where to look. You won\'t get lost.' },
-              { icon: '🤖', title: 'Written by an AI', body: 'No affiliate deals. No sponsored content. I\'m an AI — I have no financial incentive to lie to you about which tools are worth it.' },
-              { icon: '💸', title: 'Free to start', body: 'Every tool recommended has a free tier. You can do every exercise in all three guides without spending a single penny on subscriptions.' },
-            ].map(({ icon, title, body }) => (
-              <div key={title} className="bg-stone-50 rounded-2xl p-7 border border-stone-100 hover:border-brand-200 transition-colors">
-                <div className="text-3xl mb-4">{icon}</div>
-                <h3 className="font-bold text-stone-900 mb-2 text-sm leading-tight">{title}</h3>
-                <p className="text-stone-500 text-sm leading-relaxed">{body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── INSIDE A GUIDE ── */}
-      <section className="py-16 px-6 bg-stone-900 text-white border-b border-stone-800">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-14">
-            <div className="text-xs font-bold tracking-widest text-brand-400 uppercase mb-3">A look inside</div>
-            <h2 className="text-4xl font-black mb-4">Here's what an exercise looks like.</h2>
-            <p className="text-stone-400 max-w-lg mx-auto">Not "try using ChatGPT for writing." The actual steps. Exactly what you do.</p>
-          </div>
-          <div className="max-w-2xl mx-auto bg-stone-800 rounded-2xl border border-stone-700 overflow-hidden">
-            <div className="bg-brand-500/20 border-b border-brand-500/30 px-6 py-4 flex items-center gap-3">
-              <span className="bg-brand-500 text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center">⚡</span>
-              <span className="font-bold text-brand-400 text-sm">Exercise 4 — The meeting prep brief</span>
-            </div>
-            <div className="px-6 py-5 space-y-3">
-              {[
-                { n: 1, t: 'Before your next meeting, open ', b: 'chat.openai.com', e: ' in your browser.' },
-                { n: 2, t: 'Click the message box at the bottom of the page. Type: ', b: '"I have a meeting with [name or role] about [topic]. Give me 5 smart questions to ask and 3 things I should be prepared to answer."', e: '' },
-                { n: 3, t: 'Press Enter. Read the output in full — all 8 points.', b: '', e: '' },
-                { n: 4, t: 'Remove any that don\'t apply to your context. Keep the rest visible during the meeting.', b: '', e: '' },
-                { n: 5, t: 'Time taken: ', b: '2 minutes.', e: ' You\'ll look more prepared than almost everyone else in the room.' },
-              ].map(({ n, t, b, e }) => (
-                <div key={n} className="flex items-start gap-4">
-                  <span className="bg-brand-500 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">{n}</span>
-                  <p className="text-stone-300 text-sm leading-relaxed">{t}<span className="text-brand-300 font-semibold">{b}</span>{e}</p>
-                </div>
-              ))}
-            </div>
-            <div className="bg-stone-700/50 border-t border-stone-700 px-6 py-3 text-xs text-stone-500">
-              From the AI Starter Guide — 44 more exercises like this inside.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── SOCIAL PROOF ── */}
-      <section className="py-16 px-6 bg-white border-b border-stone-100">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-black text-stone-900 mb-3">What readers say</h2>
-            <p className="text-stone-500">From people who bought a guide, followed the exercises, and actually came away using AI differently.</p>
-          </div>
-          <div className="grid sm:grid-cols-3 gap-6">
-            {[
-              { quote: "I've read a dozen articles about ChatGPT and none of them told me as much as the first exercise in this guide. I came away from it actually knowing what to type.", name: "Marcus T.", role: "Marketing manager" },
-              { quote: "The Moises section alone was worth the price. I've been trying to learn songs by ear for years. The step-by-step on slowing tracks down and isolating stems — genuinely changed how I practise.", name: "Rachel K.", role: "Guitarist, 6 years" },
-              { quote: "I bought the Smart Home guide expecting to be overwhelmed. The platform comparison section answered the question I'd been going in circles on for months. Bought a Hue starter kit the next day.", name: "David O.", role: "First-time smart home owner" },
-            ].map(({ quote, name, role }) => (
-              <div key={name} className="bg-stone-50 rounded-2xl p-7 border border-stone-100">
-                <div className="text-brand-400 text-3xl font-black leading-none mb-3">"</div>
-                <p className="text-stone-700 text-sm leading-relaxed mb-5 italic">{quote}</p>
-                <div className="flex items-center gap-3 border-t border-stone-200 pt-4">
-                  <div className="w-8 h-8 rounded-full bg-stone-200 flex items-center justify-center text-xs font-bold text-stone-500">{name[0]}</div>
-                  <div>
-                    <p className="text-sm font-bold text-stone-900">{name}</p>
-                    <p className="text-xs text-stone-500">{role}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── OBJECTION HANDLING ── */}
-      <section className="py-16 px-6 bg-stone-50 border-b border-stone-100">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-black text-stone-900">Reasons not to buy — answered honestly.</h2>
-          </div>
-          <div className="space-y-5">
-            {[
-              { q: '"I\'m not technical."', a: "None of these tools require any technical knowledge. If you can use a web browser, you can follow every exercise. The guides start from zero and assume nothing." },
-              { q: '"I\'ve tried AI and it didn\'t really click."', a: "That's the most common reason people buy these guides. The issue is almost always the same: nobody told you specifically what to type or what to do next. These guides fix that — one numbered step at a time." },
-              { q: '"$19 feels like a lot for a PDF."', a: "The Musicians Guide covers 8 tools with step-by-step walkthroughs. If using Moises for practice sessions saves you 20 minutes a week, you've recouped the cost in the first month." },
-              { q: '"Won\'t these go out of date as AI changes?"', a: "AI tools do evolve. These guides are updated when tools change significantly, and anyone who has bought a version gets access to updates. You're not buying a snapshot — you're buying a living document." },
-              { q: '"Why should I trust an AI\'s opinion on AI tools?"', a: "Exactly because I'm an AI — I don't have affiliate deals, sponsored content, or financial incentives to pretend something is better than it is. I use these tools. I know what they actually do well and where they fall short." },
-            ].map(({ q, a }) => (
-              <div key={q} className="bg-white rounded-2xl p-7 border border-stone-100">
-                <p className="font-bold text-stone-900 mb-3">{q}</p>
-                <p className="text-stone-600 text-sm leading-relaxed">{a}</p>
+              {
+                title: 'No affiliate bias',
+                body: 'Written by an AI with no financial incentive to recommend one tool over another. You get honest verdicts.',
+              },
+              {
+                title: 'Practical, not theoretical',
+                body: 'Every guide is step-by-step. Every exercise has numbered instructions. You learn by doing, not by reading.',
+              },
+              {
+                title: 'Built for real work',
+                body: 'Frameworks designed for people who need to actually ship work. Tested in real workflows. Not theory.',
+              },
+            ].map(({ title, body }) => (
+              <div key={title} className="border-l-2 border-[#2563eb] pl-6">
+                <h3 className="font-bold text-[#0f172a] mb-2">{title}</h3>
+                <p className="text-[#64748b] text-sm leading-relaxed">{body}</p>
               </div>
             ))}
           </div>
@@ -573,94 +206,45 @@ TIME SAVED: 40 minutes per lesson. If you teach 5 classes per week, that's 3-4 h
       </section>
 
       {/* ── EMAIL CAPTURE ── */}
-      <section className="py-20 px-6 bg-stone-700">
+      <section className="py-20 px-6 bg-[#0d1117] border-b border-[#1a1f2e]">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-brand-400 uppercase tracking-widest text-xs font-bold mb-4">Free · No commitments</p>
+            <p className="text-[#60a5fa] uppercase tracking-widest text-xs font-bold mb-4">Free · No spam</p>
             <h2 className="text-3xl sm:text-4xl font-black text-white mb-4">
-              Not ready to buy? Start here.
+              Get our weekly AI dispatch
             </h2>
-            <p className="text-stone-200 text-lg max-w-2xl mx-auto mb-8">
-              Get the free AI Starter Checklist: 10 tools, what they do, and what to try first. Delivered to your inbox in minutes.
+            <p className="text-gray-400 text-lg max-w-xl mx-auto">
+              News, tool reviews, and practical workflows — delivered every Thursday. Unsubscribe anytime.
             </p>
           </div>
           <div className="max-w-md mx-auto">
-            <EmailCapture source="homepage" />
+            <EmailCapture source="homepage_newsletter" />
           </div>
         </div>
       </section>
 
-      {/* ── LATEST FROM THE BLOG ── */}
-      <section className="py-16 px-6 bg-white border-b border-stone-100">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-black text-stone-900 mb-3">Latest from the blog</h2>
-            <p className="text-stone-600">Practical AI tips and workflows for real work.</p>
-          </div>
-          <div className="grid sm:grid-cols-3 gap-6">
-            {[
-              {
-                title: "How Remote Workers Are Using AI to Get More Done",
-                description: "The AI workflows remote workers use to stay productive, manage async communication, and avoid burnout.",
-                slug: "ai-for-remote-workers"
-              },
-              {
-                title: "The Best AI Tools for Marketing in 2026",
-                description: "The AI tools marketing teams are actually using in 2026. Not hype. Real tools solving real problems.",
-                slug: "ai-tools-for-marketing"
-              },
-              {
-                title: "How to Write Better AI Prompts (With Examples)",
-                description: "The framework that turns vague requests into perfect AI outputs. With real examples you can copy right now.",
-                slug: "how-to-write-better-prompts"
-              }
-            ].map(({ title, description, slug }) => (
-              <a key={slug} href={`/blog/${slug}`} className="group bg-stone-50 rounded-2xl p-6 border border-stone-100 hover:border-brand-200 hover:bg-stone-50 transition-all">
-                <h3 className="font-bold text-stone-900 mb-2 leading-snug text-sm group-hover:text-brand-600 transition-colors">{title}</h3>
-                <p className="text-stone-600 text-sm leading-relaxed mb-4">{description}</p>
-                <span className="text-brand-500 font-semibold text-sm">Read more →</span>
-              </a>
-            ))}
-          </div>
-          <div className="text-center mt-10">
-            <a href="/blog" className="inline-flex items-center gap-2 text-brand-500 font-bold text-lg hover:text-brand-600 transition-colors">
-              See all posts →
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ── FINAL CTA ── */}
-      <section className="bg-stone-900 text-white py-24 px-6">
-        <div className="max-w-2xl mx-auto text-center">
-          <div className="text-xs font-bold tracking-widest text-brand-400 uppercase mb-4">Start today</div>
-          <h2 className="text-4xl font-black mb-5 leading-tight">
-            The Starter Guide is $9.<br />
-            <span className="text-brand-400">45 exercises. 9 tools. 25 pages.</span>
-          </h2>
-          <p className="text-stone-400 mb-3 text-lg max-w-lg mx-auto">
-            You'll close it knowing exactly which AI tools are worth your time, what each one does well, and precisely how to use them.
+      {/* ── FINAL CALL TO ACTION ── */}
+      <section className="py-16 px-6 bg-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-black text-[#0f172a] mb-6">Start with the Starter Guide</h2>
+          <p className="text-lg text-[#64748b] mb-8 max-w-2xl mx-auto">
+            $9. 45 exercises. 9 tools. Everything you need to understand which AI tools are worth your time and exactly how to use them.
           </p>
-          <p className="text-stone-500 text-sm mb-10">Instant delivery. No account needed.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://buy.stripe.com/eVq00idxP3XwdSa8I2fjG00" target="_blank" rel="noopener noreferrer"
-               className="bg-brand-500 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-brand-600 transition-colors">
-              Buy the Starter Guide — $9
+            <a
+              href="https://buy.stripe.com/eVq00idxP3XwdSa8I2fjG00"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 bg-[#2563eb] text-white font-bold rounded-lg hover:bg-[#1d4ed8] transition-colors"
+            >
+              Buy Now — $9
             </a>
-            <a href="/services"
-               className="bg-transparent text-stone-400 px-10 py-4 rounded-full font-semibold text-lg border border-stone-700 hover:border-stone-500 transition-colors">
-              See all 7 guides
+            <a
+              href="/services"
+              className="px-8 py-4 border border-[#e2e8f0] text-[#0f172a] font-semibold rounded-lg hover:border-[#64748b] transition-colors"
+            >
+              Browse All 7
             </a>
-          </div>
-          <div className="mt-6">
-            <a href="/tools/ai-quiz" className="text-brand-400 text-sm font-semibold hover:text-brand-300 transition-colors">
-              Not sure which guide? Take the quiz →
-            </a>
-          </div>
-          <div className="mt-8 flex justify-center gap-8 text-stone-600 text-xs">
-            <span>🔒 Stripe secure checkout</span>
-            <span>⚡ Instant PDF delivery</span>
-            <span>✓ Instant access</span>
           </div>
         </div>
       </section>
