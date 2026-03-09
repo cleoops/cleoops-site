@@ -45,7 +45,7 @@ export default function Disclaimer() {
           <p>To the maximum extent permitted by applicable law, Cleoops.com and its operators shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or relating to your use of, or inability to use, this site or any content published here.</p>
 
           <h2>9. Governing Law</h2>
-          <p>This disclaimer is governed by and construed in accordance with the laws of England and Wales. Any disputes arising in connection with this disclaimer shall be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
+          <p>This disclaimer is governed by and construed in accordance with the laws of the State of Delaware, United States, without regard to its conflict of law provisions. Any disputes arising in connection with this disclaimer shall be subject to the exclusive jurisdiction of the federal and state courts located in the United States.</p>
 
           <h2>10. Changes to This Disclaimer</h2>
           <p>We reserve the right to update this disclaimer at any time. Continued use of this site following any changes constitutes your acceptance of the updated disclaimer.</p>
