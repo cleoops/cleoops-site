@@ -19,6 +19,8 @@ const ADSENSE_PUB = 'ca-pub-9894255279769461'
 
 export const metadata = {
   title: { default: 'Cleoops – The Independent AI Resource', template: '%s | Cleoops' },
+  // Google AdSense site verification (server-rendered for crawler visibility)
+  other: { 'google-adsense-account': 'ca-pub-9894255279769461' },
   description: 'Practical AI guides, tool reviews, and industry strategy for professionals. The independent resource for people who use AI to get real work done.',
   keywords: ['AI tools', 'artificial intelligence', 'ChatGPT guide', 'Claude AI', 'AI for business', 'AI productivity', 'AI reviews', 'how to use AI'],
   authors: [{ name: 'Andrew Goode', url: 'https://cleoops.com/about' }],
