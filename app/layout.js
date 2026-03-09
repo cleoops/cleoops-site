@@ -14,8 +14,8 @@ const GA_ID = process.env.GA_MEASUREMENT_ID || null
 // Set GOOGLE_ADS_TAG in Vercel env vars (format: GT-XXXXXXXX)
 const GADS_TAG = process.env.GOOGLE_ADS_TAG || 'GT-MJBB3L93'
 
-// Google AdSense publisher ID — set NEXT_PUBLIC_ADSENSE_PUBLISHER_ID in Vercel env vars
-const ADSENSE_PUB = process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || null
+// Google AdSense publisher ID
+const ADSENSE_PUB = 'ca-pub-9894255279769461'
 
 export const metadata = {
   title: { default: 'Cleoops – The Independent AI Resource', template: '%s | Cleoops' },
