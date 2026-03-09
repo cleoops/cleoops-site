@@ -15,6 +15,7 @@ const tools = [
   { name: 'ElevenLabs', by: 'ElevenLabs', category: 'Voice AI', desc: 'The most realistic AI voice generation available. Used for podcasts, video and narration.', url: 'https://elevenlabs.io', badge: null },
   { name: 'Cursor', by: 'Anysphere', category: 'Coding', desc: 'AI-native code editor that understands your entire codebase. The developer favourite.', url: 'https://cursor.sh', badge: 'Editor Pick' },
   { name: 'You.com', by: 'You.com', category: 'Research', desc: 'AI-powered search engine with real-time web access, code execution, and multi-model support. Strong alternative to Perplexity.', url: 'https://you.com', badge: null },
+  { name: 'Gamma', by: 'Gamma', category: 'Productivity', desc: 'AI-generated presentations, docs and webpages in seconds. Replaces PowerPoint for most business use cases.', url: 'https://gamma.app', badge: null },
 ]
 
 const categories = [...new Set(tools.map(t => t.category))]
