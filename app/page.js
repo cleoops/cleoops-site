@@ -164,17 +164,69 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── INDUSTRY STRATEGY TEASER ── */}
-      <section className="py-16 px-6 bg-[#0d1117] border-b border-[#1a1f2e] text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <span className="inline-block bg-[#2563eb]/20 text-[#60a5fa] text-xs font-bold px-3 py-1 rounded-full mb-6 border border-[#2563eb]/50">COMING SOON</span>
-          <h2 className="text-4xl font-black mb-4">Industry Strategy</h2>
-          <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
-            Deep analysis of how AI is reshaping advertising, marketing, and business. From supply-side strategy to LLM monetisation, built for operators thinking 2-3 steps ahead.
-          </p>
-          <div className="inline-flex items-center gap-2 text-sm text-gray-500">
-            <span className="w-2 h-2 bg-[#2563eb] rounded-full animate-pulse"></span>
-            In development
+      {/* ── DATA INTELLIGENCE STRIP ── */}
+      <section className="py-12 px-6 bg-[#0d1117] border-y border-[#1a1f2e]">
+        <div className="max-w-7xl mx-auto">
+          <p className="text-xs font-bold text-[#60a5fa] tracking-widest uppercase mb-8">AI By The Numbers</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              { stat: '$200B+', label: 'AI market size by 2025', src: 'Goldman Sachs' },
+              { stat: '400M+', label: 'ChatGPT weekly active users', src: 'OpenAI, Feb 2025' },
+              { stat: '77%', label: 'of employees use AI without employer knowledge', src: 'Microsoft WorkLab' },
+              { stat: '14.6%', label: 'productivity gain for knowledge workers using AI', src: 'MIT / Stanford' },
+            ].map(({ stat, label, src }) => (
+              <div key={stat} className="border-l-2 border-[#2563eb] pl-4">
+                <div className="text-3xl font-black text-white mb-1">{stat}</div>
+                <div className="text-sm text-[#94a3b8] mb-1">{label}</div>
+                <div className="text-xs text-[#475569]">{src}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── INDUSTRY STRATEGY ── */}
+      <section className="py-16 px-6 bg-[#000]">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-end justify-between mb-10">
+            <div>
+              <p className="text-xs font-bold text-[#60a5fa] tracking-widest uppercase mb-2">Strategic Intelligence</p>
+              <h2 className="text-3xl font-black text-white">How AI is reshaping industries</h2>
+            </div>
+            <a href="/strategy" className="flex items-center gap-2 text-white text-sm font-semibold hover:text-[#60a5fa] transition-colors">
+              View all <span className="bg-[#2563eb] rounded-full w-6 h-6 flex items-center justify-center text-xs">→</span>
+            </a>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[
+              {
+                sector: 'Marketing & Advertising',
+                headline: 'AI is collapsing the cost of creative production. What that means for agencies, brands, and the media buyers caught in between.',
+                tag: 'FIRST ANALYSIS',
+                tagColor: '#f59e0b',
+                href: '/strategy',
+              },
+              {
+                sector: 'Finance & Professional Services',
+                headline: 'From AI-assisted analysis to autonomous compliance. Where human judgment stays irreplaceable — and where it does not.',
+                tag: 'COMING SOON',
+                tagColor: '#475569',
+                href: '/strategy',
+              },
+              {
+                sector: 'Education',
+                headline: 'The AI tutor era is here. What institutions need to do before their students figure out that the curriculum is obsolete.',
+                tag: 'COMING SOON',
+                tagColor: '#475569',
+                href: '/strategy',
+              },
+            ].map(({ sector, headline, tag, tagColor, href }) => (
+              <a key={sector} href={href} className="group bg-[#111] rounded-xl p-7 hover:bg-[#1a1a1a] transition-all border border-[#222] hover:border-[#2563eb]">
+                <span className="text-xs font-bold tracking-widest uppercase mb-4 block" style={{ color: tagColor }}>{tag}</span>
+                <h3 className="text-white font-black text-lg mb-3 leading-snug group-hover:text-[#60a5fa] transition-colors">{sector}</h3>
+                <p className="text-[#94a3b8] text-sm leading-relaxed">{headline}</p>
+              </a>
+            ))}
           </div>
         </div>
       </section>
