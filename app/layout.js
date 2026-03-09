@@ -144,6 +144,7 @@ export default function RootLayout({ children }) {
                 <div className="flex flex-col gap-2">
                   <a href="/privacy" className="hover:text-[#0f172a] transition-colors">Privacy</a>
                   <a href="/terms" className="hover:text-[#0f172a] transition-colors">Terms</a>
+                  <a href="/disclaimer" className="hover:text-[#0f172a] transition-colors">Disclaimer</a>
                   <a href="/contact" className="hover:text-[#0f172a] transition-colors">Contact</a>
                 </div>
               </div>
