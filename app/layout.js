@@ -79,6 +79,9 @@ export default function RootLayout({ children }) {
               <a href="/reviews" className="px-4 py-2 hover:text-white transition-colors">Reviews</a>
               <a href="/tools" className="px-4 py-2 hover:text-white transition-colors">Tools</a>
               <a href="/strategy" className="px-4 py-2 hover:text-white transition-colors">Strategy</a>
+              <a href="/search" className="px-3 py-2 hover:text-white transition-colors" aria-label="Search">
+                <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+              </a>
               <a href="/#newsletter" className="ml-4 px-6 py-2 bg-[#2563eb] text-white rounded-lg hover:bg-[#1d4ed8] transition-colors font-semibold">
                 Newsletter
               </a>
