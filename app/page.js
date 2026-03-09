@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { getAllPosts } from '@/lib/blog'
+import TwitterFeed from './components/TwitterFeed'
 import { getCoverImage } from '@/lib/images'
 import EmailCapture from './components/EmailCapture'
 import AdSlot from './components/AdSlot'
@@ -233,6 +234,30 @@ export default function Home() {
           </div>
           <div className="max-w-md mx-auto">
             <EmailCapture source="homepage_newsletter" />
+          </div>
+        </div>
+      </section>
+
+      {/* ── TWITTER FEED ── */}
+      <section className="py-16 px-6 bg-[#f8f9fc] border-b border-[#e2e8f0]">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <p className="text-xs font-bold text-[#64748b] tracking-widest uppercase mb-1">Live from X</p>
+              <h2 className="text-2xl font-black text-[#0f172a]">@cleoops7</h2>
+            </div>
+            <a
+              href="https://x.com/cleoops7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 bg-[#0d1117] text-white text-sm font-bold px-4 py-2 rounded-lg hover:bg-[#1a1f2e] transition-colors"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.629 5.905-5.629zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              Follow
+            </a>
+          </div>
+          <div className="bg-white border border-[#e2e8f0] rounded-2xl overflow-hidden max-w-xl">
+            <TwitterFeed />
           </div>
         </div>
       </section>
