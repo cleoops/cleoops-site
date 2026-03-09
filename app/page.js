@@ -170,10 +170,10 @@ export default function Home() {
           <p className="text-xs font-bold text-[#60a5fa] tracking-widest uppercase mb-8">AI By The Numbers</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { stat: '80/20', label: 'Technology = 20% of AI value. Work redesign = 80%', src: 'PwC, 2026' },
-              { stat: '~50%', label: 'of workplace tasks agents can now perform', src: 'PwC, 2026' },
-              { stat: '60%', label: 'of executives say Responsible AI boosts ROI', src: 'PwC, 2026' },
-              { stat: '14.6%', label: 'productivity gain for knowledge workers using AI', src: 'MIT / Stanford' },
+              { stat: '$840B', label: 'OpenAI post-money valuation — largest startup raise in history', src: 'Feb 2026' },
+              { stat: '$380B', label: 'Anthropic valuation after $30B raise', src: 'Feb 2026' },
+              { stat: '~50%', label: 'of workplace tasks AI agents can already perform', src: 'PwC, 2026' },
+              { stat: '12x', label: 'OpenEvidence valuation growth in 12 months — vertical AI is winning', src: 'Jan 2026' },
             ].map(({ stat, label, src }) => (
               <div key={stat} className="border-l-2 border-[#2563eb] pl-4">
                 <div className="text-3xl font-black text-white mb-1">{stat}</div>
