@@ -1,5 +1,6 @@
 import './globals.css'
 import Script from 'next/script'
+import { SchemaOrganization, SchemaWebSite } from './components/SchemaMarkup'
 
 // META PIXEL ID — replace 'PIXEL_ID_HERE' with your actual Pixel ID from business.facebook.com
 // Steps: business.facebook.com → Events Manager → Connect Data Sources → Web → Get started
@@ -17,17 +18,36 @@ const GADS_TAG = process.env.GOOGLE_ADS_TAG || 'GT-MJBB3L93'
 const ADSENSE_PUB = process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || null
 
 export const metadata = {
-  title: 'Cleo – AI Guides with Step-by-Step Exercises',
-  description: 'Practical AI guides that tell you what to click, not just what to do. 9 tools, 45+ exercises, instant PDF. From $9.',
-  icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
-  },
+  title: { default: 'Cleoops – The Independent AI Resource', template: '%s | Cleoops' },
+  description: 'Practical AI guides, tool reviews, and industry strategy for professionals. The independent resource for people who use AI to get real work done.',
+  keywords: ['AI tools', 'artificial intelligence', 'ChatGPT guide', 'Claude AI', 'AI for business', 'AI productivity', 'AI reviews', 'how to use AI'],
+  authors: [{ name: 'Andrew Goode', url: 'https://cleoops.com/about' }],
+  creator: 'Andrew Goode',
+  publisher: 'Cleoops',
+  metadataBase: new URL('https://cleoops.com'),
+  alternates: { canonical: 'https://cleoops.com' },
+  icons: { icon: '/favicon.ico', apple: '/apple-touch-icon.png' },
   openGraph: {
-    title: 'Cleo – AI Guides with Step-by-Step Exercises',
-    description: 'Practical AI guides that tell you what to click, not just what to do. From $9.',
+    title: 'Cleoops – The Independent AI Resource',
+    description: 'Practical AI guides, tool reviews, and strategy for professionals. No hype. No conflicts of interest. Just AI that works.',
     url: 'https://cleoops.com',
-    siteName: 'Cleo',
+    siteName: 'Cleoops',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cleoops – The Independent AI Resource',
+    description: 'Practical AI guides, reviews, and strategy for professionals.',
+    creator: '@cleoops7',
+    site: '@cleoops7',
+  },
+  robots: {
+    index: true, follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large', 'max-video-preview': -1 },
+  },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION || '',
   },
 }
 
@@ -86,6 +106,8 @@ export default function RootLayout({ children }) {
               src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`} alt=""/></noscript>
           </>
         )}
+        <SchemaOrganization />
+        <SchemaWebSite />
         <main>{children}</main>
         <footer className="border-t border-stone-200 mt-24 py-12 text-sm text-stone-500">
           <div className="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row justify-between gap-4">

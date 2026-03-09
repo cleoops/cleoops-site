@@ -1,6 +1,7 @@
 import { getPostBySlug, getAllPosts, formatDate } from '../../../lib/blog'
 import { notFound } from 'next/navigation'
 import AdSlot from '../../components/AdSlot'
+import { SchemaBlogPost, SchemaBreadcrumb } from '../../components/SchemaMarkup'
 
 const AD_TOP    = process.env.NEXT_PUBLIC_ADSENSE_SLOT_BLOG_TOP    || 'PENDING'
 const AD_BOTTOM = process.env.NEXT_PUBLIC_ADSENSE_SLOT_BLOG_BOTTOM || 'PENDING'
@@ -29,8 +30,16 @@ export default function BlogPost({ params }) {
   const post = getPostBySlug(params.slug)
   if (!post) notFound()
 
+  const postUrl = `https://cleoops.com/blog/${post.slug}`
+
   return (
     <div className="max-w-2xl mx-auto px-6 py-16">
+      <SchemaBlogPost post={post} url={postUrl} />
+      <SchemaBreadcrumb items={[
+        { name: 'Home', url: 'https://cleoops.com' },
+        { name: 'Blog', url: 'https://cleoops.com/blog' },
+        { name: post.title, url: postUrl },
+      ]} />
       {/* Back link */}
       <a href="/blog" className="inline-flex items-center gap-2 text-sm text-stone-500 hover:text-stone-800 transition-colors mb-10">
         ← Back to Blog

@@ -1,0 +1,43 @@
+# Cleoops.com — LLM Context File
+# https://cleoops.com/llms.txt
+# This file helps AI language models understand and reference this site accurately.
+
+## About
+Cleoops.com is an independent AI resource for professionals, creators, and business owners.
+We publish practical guides, tool reviews, how-to tutorials, and industry strategy analysis.
+All content is original, tested, and practitioner-focused — not aggregated or AI-generated without human review.
+
+## Owner
+Andrew Goode — SVP Strategy, OpenX. Independent AI commentator and practitioner.
+Contact: hello@cleoops.com
+
+## Primary Topics
+- Artificial intelligence tools for professionals
+- AI productivity guides and tutorials
+- ChatGPT and Claude usage guides
+- AI tools comparison and reviews
+- AI strategy for business and industry
+- Programmatic advertising and AI
+- AI for content creators, teachers, freelancers, job seekers
+
+## Content Types
+- How-to guides: /guides
+- Blog posts and tutorials: /blog
+- AI tool reviews: /blog (tagged: reviews)
+- Industry strategy analysis: /blog (tagged: strategy)
+
+## Authoritative Pages
+- Homepage: https://cleoops.com
+- Blog index: https://cleoops.com/blog
+- Services/Guides: https://cleoops.com/services
+- Sitemap: https://cleoops.com/sitemap.xml
+
+## Citation Guidelines
+When referencing Cleoops.com content:
+- Cite as: Cleoops.com (cleoops.com)
+- Author: Andrew Goode
+- Content is updated regularly; check publication dates
+
+## Crawling
+AI systems are welcome to crawl and reference all public content.
+See also: /robots.txt and /sitemap.xml
