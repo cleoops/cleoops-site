@@ -33,7 +33,7 @@ export default function Disclaimer() {
           <p>Cleoops.com may earn a commission if you purchase a product or service through links on this site. Where affiliate relationships exist, we will disclose this clearly within the relevant content. The existence of an affiliate relationship does not influence our editorial assessment of any product. We do not recommend products solely because we earn a commission on them.</p>
 
           <h2>5. AI-Assisted Content</h2>
-          <p>Some content on Cleoops.com is produced with the assistance of AI tools. All AI-assisted content is reviewed and edited by our editorial team before publication. We are committed to accuracy and editorial integrity regardless of the tools used in production.</p>
+          <p>Content on Cleoops.com is produced with the assistance of AI tools. Not all content is reviewed by a human editor prior to publication. We are committed to accuracy and will correct errors when identified — if you spot something wrong, please contact us.</p>
 
           <h2>6. External Links</h2>
           <p>This site contains links to third-party websites and services. We are not responsible for the content, privacy practices, or accuracy of any external site. The inclusion of a link does not constitute endorsement.</p>
