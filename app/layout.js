@@ -76,9 +76,9 @@ export default function RootLayout({ children }) {
             <div className="flex items-center gap-1 text-sm font-semibold text-gray-300">
               <a href="/blog" className="px-4 py-2 hover:text-white transition-colors">News</a>
               <a href="/services" className="px-4 py-2 hover:text-white transition-colors">Guides</a>
-              <a href="/blog" className="px-4 py-2 hover:text-white transition-colors">Reviews</a>
+              <a href="/reviews" className="px-4 py-2 hover:text-white transition-colors">Reviews</a>
               <a href="/tools" className="px-4 py-2 hover:text-white transition-colors">Tools</a>
-              <a href="#strategy" className="px-4 py-2 hover:text-white transition-colors">Strategy</a>
+              <a href="/strategy" className="px-4 py-2 hover:text-white transition-colors">Strategy</a>
               <button className="ml-4 px-6 py-2 bg-[#2563eb] text-white rounded-lg hover:bg-[#1d4ed8] transition-colors font-semibold">
                 Newsletter
               </button>
