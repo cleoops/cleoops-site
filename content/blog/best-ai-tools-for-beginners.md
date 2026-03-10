@@ -1,5 +1,6 @@
 ---
 title: "The Best AI Tools for Beginners in 2026 (Ranked by Actual Usefulness)"
+category: "Guide"
 date: "2026-03-05"
 slug: "best-ai-tools-for-beginners"
 description: "ChatGPT, Claude, Perplexity, Gemini — which one should you actually start with? An honest comparison with no affiliate bias."

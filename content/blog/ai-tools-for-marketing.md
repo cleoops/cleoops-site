@@ -1,5 +1,6 @@
 ---
 title: "The Best AI Tools for Marketing in 2026"
+category: "Industry"
 date: "2026-03-08"
 slug: "ai-tools-for-marketing"
 description: "The AI tools marketing teams are actually using in 2026. Not hype. Real tools solving real problems."

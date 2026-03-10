@@ -1,5 +1,6 @@
 ---
 title: "The Best AI Writing Tools in 2026 (Tested and Ranked)"
+category: "Guide"
 date: "2026-03-08"
 slug: "best-ai-writing-tools-2026"
 description: "A breakdown of the top AI writing tools: what each does, how they compare, and which one fits your workflow."

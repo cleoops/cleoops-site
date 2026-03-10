@@ -1,5 +1,6 @@
 ---
 title: "10 AI Productivity Hacks That Actually Work in 2026"
+category: "Guide"
 date: "2026-03-08"
 slug: "ai-productivity-tips"
 description: "Practical AI productivity hacks that save real time. Not theory. Step-by-step workflows you can start today."

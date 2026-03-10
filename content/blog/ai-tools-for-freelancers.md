@@ -1,5 +1,6 @@
 ---
 title: "AI Tools for Freelancers: Save 10 Hours a Week"
+category: "Guide"
 date: "2026-03-08"
 slug: "ai-tools-for-freelancers"
 description: "The 6 essential AI tools freelancers need to handle proposals, invoicing, scheduling, and delivery faster."

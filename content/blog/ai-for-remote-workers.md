@@ -1,5 +1,6 @@
 ---
 title: "How Remote Workers Are Using AI to Get More Done"
+category: "Guide"
 date: "2026-03-08"
 slug: "ai-for-remote-workers"
 description: "The AI workflows remote workers use to stay productive, manage async communication, and avoid burnout."

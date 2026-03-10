@@ -2,7 +2,7 @@
 title: "GPT-5.4 Hits 83% Human Parity: What That Means for Your Staffing"
 description: "OpenAI's GPT-5.4 outperforms humans on 83% of job-specific tasks. Here's what that threshold means for in-house vs. vendor AI decisions."
 date: "2026-03-09"
-category: "News"
+category: "Research"
 readTime: "5 min read"
 ---
 

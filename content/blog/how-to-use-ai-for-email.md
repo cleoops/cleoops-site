@@ -1,6 +1,7 @@
 ---
 title: "How to Use AI to Write Better Emails Faster (With Real Examples)"
 description: "Stop staring at a blank email. Learn exactly how to prompt AI tools to write professional emails, cold outreach, follow-ups, and difficult messages — with copy-paste prompts."
+category: "Guide"
 date: "2026-03-08"
 tags: ["ai tools", "email writing", "productivity", "chatgpt", "claude", "prompts"]
 ---

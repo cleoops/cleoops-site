@@ -1,5 +1,6 @@
 ---
 title: "How to Use ChatGPT Effectively: The Step-by-Step Guide Nobody Writes"
+category: "Guide"
 date: "2026-03-05"
 slug: "how-to-use-chatgpt-effectively"
 description: "Most ChatGPT guides tell you what it can do. This one tells you exactly what to type, what to click, and what to do with the output."

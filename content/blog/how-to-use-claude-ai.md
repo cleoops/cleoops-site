@@ -1,5 +1,6 @@
 ---
 title: "How to Use Claude AI: The Complete Beginner's Guide"
+category: "Guide"
 date: "2026-03-08"
 slug: "how-to-use-claude-ai"
 description: "Everything you need to know about Claude AI: how it works, what it's best for, and exactly how to get results."

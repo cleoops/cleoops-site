@@ -1,5 +1,6 @@
 ---
 title: "AI Tools for Musicians: How to Use Moises, Suno, and Chord AI in Your Practice"
+category: "Guide"
 date: "2026-03-05"
 slug: "ai-tools-for-musicians"
 description: "Step-by-step guide to using AI for stem separation, chord learning, and music generation."

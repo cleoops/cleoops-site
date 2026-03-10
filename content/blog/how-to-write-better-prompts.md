@@ -1,5 +1,6 @@
 ---
 title: "How to Write Better AI Prompts (With Examples)"
+category: "Guide"
 date: "2026-03-08"
 slug: "how-to-write-better-prompts"
 description: "The framework that turns vague requests into perfect AI outputs. With real examples you can copy right now."

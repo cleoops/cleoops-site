@@ -1,5 +1,6 @@
 ---
 title: "AI for Small Business: 8 Tools That Actually Pay for Themselves"
+category: "Guide"
 date: "2026-03-08"
 slug: "ai-for-small-business"
 description: "8 AI tools that cut costs and save time for small business owners. Payback happens fast."

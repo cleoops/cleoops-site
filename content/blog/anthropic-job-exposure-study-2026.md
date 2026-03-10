@@ -2,7 +2,7 @@
 title: "Anthropic's Own Data Reveals Which Jobs AI Is Already Replacing, Not Predicting, Measuring"
 description: "Anthropic used millions of real Claude interactions to map actual AI job exposure. The results are more alarming than any prediction."
 date: "2026-03-09"
-category: "Analysis"
+category: "Research"
 tags: ["anthropic", "ai jobs", "workforce", "automation", "claude"]
 readTime: "5 min read"
 ---
