@@ -1,7 +1,12 @@
+import AdSlot from '../components/AdSlot'
+
 export const metadata = {
   title: 'AI Tool Reviews',
   description: 'Independently tested AI tool reviews. Real benchmarks, real conclusions — no affiliate bias.',
 }
+
+const AD_TOP    = process.env.NEXT_PUBLIC_ADSENSE_SLOT_BLOG_TOP    || 'PENDING'
+const AD_BOTTOM = process.env.NEXT_PUBLIC_ADSENSE_SLOT_BLOG_BOTTOM || 'PENDING'
 
 export default function ReviewsPage() {
   return (
@@ -19,6 +24,11 @@ export default function ReviewsPage() {
             Every tool is tested on real tasks before we write a word. No press releases. No sponsored content. Just honest assessments.
           </p>
         </div>
+      </div>
+
+      {/* Ad — top */}
+      <div className="max-w-6xl mx-auto px-4 py-8">
+        <AdSlot slotId={AD_TOP} />
       </div>
 
       {/* Coming soon content */}
@@ -50,6 +60,11 @@ export default function ReviewsPage() {
               <p className="text-sm text-[#64748b] leading-relaxed">{item.desc}</p>
             </div>
           ))}
+        </div>
+
+        {/* Ad — bottom */}
+        <div className="py-8">
+          <AdSlot slotId={AD_BOTTOM} />
         </div>
       </div>
     </div>

@@ -5,7 +5,31 @@ import Comments from '../../components/Comments'
 import { SchemaBlogPost, SchemaBreadcrumb } from '../../components/SchemaMarkup'
 
 const AD_TOP    = process.env.NEXT_PUBLIC_ADSENSE_SLOT_BLOG_TOP    || 'PENDING'
+const AD_MIDDLE = process.env.NEXT_PUBLIC_ADSENSE_SLOT_BLOG_MIDDLE || 'PENDING'
 const AD_BOTTOM = process.env.NEXT_PUBLIC_ADSENSE_SLOT_BLOG_BOTTOM || 'PENDING'
+
+// Helper: inject ad after 2nd paragraph
+function injectAdAfterParagraphs(html, paragraphCount = 2) {
+  const paragraphRegex = /<\/p>/g
+  let matches = 0
+  let lastIndex = 0
+  
+  for (const match of html.matchAll(paragraphRegex)) {
+    matches++
+    if (matches === paragraphCount) {
+      lastIndex = match.index + match[0].length
+      break
+    }
+  }
+  
+  if (lastIndex > 0) {
+    return {
+      before: html.substring(0, lastIndex),
+      after: html.substring(lastIndex)
+    }
+  }
+  return { before: html, after: '' }
+}
 
 export async function generateStaticParams() {
   const posts = getAllPosts()
@@ -69,24 +93,49 @@ export default function BlogPost({ params }) {
       {/* Ad — top */}
       <AdSlot slotId={AD_TOP} />
 
-      {/* Article body */}
-      <div
-        className="prose prose-stone prose-lg max-w-none
-          prose-headings:font-semibold prose-headings:text-stone-900
-          prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
-          prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
-          prose-p:text-stone-700 prose-p:leading-relaxed
-          prose-li:text-stone-700
-          prose-strong:text-stone-900 prose-strong:font-semibold
-          prose-a:text-brand-600 prose-a:no-underline hover:prose-a:underline
-          prose-blockquote:border-brand-400 prose-blockquote:bg-stone-50 prose-blockquote:rounded-r-lg
-          prose-blockquote:py-1 prose-blockquote:text-stone-700 prose-blockquote:not-italic
-          prose-code:bg-stone-100 prose-code:text-stone-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
-          prose-code:text-sm prose-code:font-mono prose-code:before:content-none prose-code:after:content-none
-          prose-table:text-sm prose-th:bg-stone-100 prose-th:text-stone-900
-          prose-hr:border-stone-200"
-        dangerouslySetInnerHTML={{ __html: post.content }}
-      />
+      {/* Article body with middle ad injection */}
+      {(() => {
+        const { before, after } = injectAdAfterParagraphs(post.content)
+        return (
+          <>
+            <div
+              className="prose prose-stone prose-lg max-w-none
+                prose-headings:font-semibold prose-headings:text-stone-900
+                prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
+                prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+                prose-p:text-stone-700 prose-p:leading-relaxed
+                prose-li:text-stone-700
+                prose-strong:text-stone-900 prose-strong:font-semibold
+                prose-a:text-brand-600 prose-a:no-underline hover:prose-a:underline
+                prose-blockquote:border-brand-400 prose-blockquote:bg-stone-50 prose-blockquote:rounded-r-lg
+                prose-blockquote:py-1 prose-blockquote:text-stone-700 prose-blockquote:not-italic
+                prose-code:bg-stone-100 prose-code:text-stone-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
+                prose-code:text-sm prose-code:font-mono prose-code:before:content-none prose-code:after:content-none
+                prose-table:text-sm prose-th:bg-stone-100 prose-th:text-stone-900
+                prose-hr:border-stone-200"
+              dangerouslySetInnerHTML={{ __html: before }}
+            />
+            {AD_MIDDLE !== 'PENDING' && <AdSlot slotId={AD_MIDDLE} />}
+            <div
+              className="prose prose-stone prose-lg max-w-none
+                prose-headings:font-semibold prose-headings:text-stone-900
+                prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
+                prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+                prose-p:text-stone-700 prose-p:leading-relaxed
+                prose-li:text-stone-700
+                prose-strong:text-stone-900 prose-strong:font-semibold
+                prose-a:text-brand-600 prose-a:no-underline hover:prose-a:underline
+                prose-blockquote:border-brand-400 prose-blockquote:bg-stone-50 prose-blockquote:rounded-r-lg
+                prose-blockquote:py-1 prose-blockquote:text-stone-700 prose-blockquote:not-italic
+                prose-code:bg-stone-100 prose-code:text-stone-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
+                prose-code:text-sm prose-code:font-mono prose-code:before:content-none prose-code:after:content-none
+                prose-table:text-sm prose-th:bg-stone-100 prose-th:text-stone-900
+                prose-hr:border-stone-200"
+              dangerouslySetInnerHTML={{ __html: after }}
+            />
+          </>
+        )
+      })()}
 
       {/* Ad — bottom */}
       <AdSlot slotId={AD_BOTTOM} />

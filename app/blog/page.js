@@ -8,22 +8,33 @@ export const metadata = {
   description: 'AI news, analysis, and practical guides. Thoughtful coverage of how AI is changing work.',
 }
 
-function getCategoryColor(category) {
-  const colors = ['#2563eb', '#dc2626', '#16a34a', '#d97706']
-  let hash = 0
-  for (let i = 0; i < category.length; i++) {
-    hash = ((hash << 5) - hash) + category.charCodeAt(i)
-    hash = hash & hash
-  }
-  return colors[Math.abs(hash) % colors.length]
+const CATEGORY_COLORS = {
+  'News':     '#dc2626',
+  'Analysis': '#2563eb',
+  'Guide':    '#16a34a',
+  'Research': '#7c3aed',
+  'Industry': '#d97706',
 }
 
-export default function BlogIndex() {
-  const posts = getAllPosts()
-  const featuredPost = posts[0]
+function getCategoryColor(category) {
+  return CATEGORY_COLORS[category] || '#2563eb'
+}
+
+export default function BlogIndex({ searchParams }) {
+  const allPosts = getAllPosts()
+  const activeCategory = searchParams?.category || 'All'
+
+  // Derive unique categories from actual posts
+  const categories = ['All', ...Array.from(new Set(allPosts.map(p => p.category).filter(Boolean))).sort()]
+
+  const posts = activeCategory === 'All'
+    ? allPosts
+    : allPosts.filter(p => p.category === activeCategory)
+
+  const featuredPost   = posts[0]
   const secondaryPosts = posts.slice(1, 3)
   const remainingPosts = posts.slice(3)
-  const latestPosts = posts.slice(0, 8)
+  const latestPosts    = allPosts.slice(0, 8)
 
   const today = new Date().toLocaleDateString('en-US', {
     weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'
@@ -40,6 +51,25 @@ export default function BlogIndex() {
         </div>
       </div>
 
+      {/* CATEGORY FILTER BAR */}
+      <div className="border-b border-[#e2e8f0] bg-white px-6 overflow-x-auto">
+        <div className="max-w-[1400px] mx-auto flex gap-1 py-0">
+          {categories.map(cat => (
+            <a
+              key={cat}
+              href={cat === 'All' ? '/blog' : `/blog?category=${encodeURIComponent(cat)}`}
+              className={`px-4 py-3 text-xs font-black uppercase tracking-widest whitespace-nowrap border-b-2 transition-colors ${
+                activeCategory === cat
+                  ? 'border-[#0f172a] text-[#0f172a]'
+                  : 'border-transparent text-[#64748b] hover:text-[#0f172a]'
+              }`}
+            >
+              {cat}
+            </a>
+          ))}
+        </div>
+      </div>
+
       {/* AD SLOT — LEADERBOARD */}
       <div className="py-3 px-6 bg-[#f8f9fc] border-b border-[#e2e8f0]">
         <div className="max-w-[1400px] mx-auto flex justify-center">
@@ -50,7 +80,10 @@ export default function BlogIndex() {
       {/* MAIN LAYOUT */}
       <div className="max-w-[1400px] mx-auto px-6 py-8">
         {posts.length === 0 ? (
-          <p className="text-[#64748b] text-center py-12">Posts coming soon.</p>
+          <div className="text-center py-16">
+            <p className="text-[#64748b] text-lg mb-4">No {activeCategory} posts yet.</p>
+            <a href="/blog" className="text-[#2563eb] text-sm font-bold hover:underline">View all posts</a>
+          </div>
         ) : (
           <div className="grid grid-cols-1 xl:grid-cols-12 gap-8">
 
@@ -75,8 +108,8 @@ export default function BlogIndex() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-6">
                       <span className="text-xs font-black uppercase tracking-widest mb-2 block"
-                        style={{ color: getCategoryColor(featuredPost.category || 'Analysis') }}>
-                        {featuredPost.category || 'Analysis'}
+                        style={{ color: getCategoryColor(featuredPost.category) }}>
+                        {featuredPost.category}
                       </span>
                       <h2 className="text-white text-2xl font-black leading-tight mb-2 group-hover:underline">
                         {featuredPost.title}
@@ -102,8 +135,8 @@ export default function BlogIndex() {
                       </div>
                       <div className="flex flex-col justify-center py-4 pr-4">
                         <span className="text-xs font-black uppercase tracking-widest mb-1"
-                          style={{ color: getCategoryColor(post.category || 'Analysis') }}>
-                          {post.category || 'Analysis'}
+                          style={{ color: getCategoryColor(post.category) }}>
+                          {post.category}
                         </span>
                         <h3 className="text-[#0f172a] font-black text-sm leading-snug mb-2 group-hover:text-[#2563eb] transition-colors">
                           {post.title}
@@ -117,12 +150,14 @@ export default function BlogIndex() {
 
               {/* DIVIDER */}
               <div className="flex items-center gap-3 mb-6">
-                <span className="text-xs font-black uppercase tracking-widest text-[#64748b]">All Stories</span>
+                <span className="text-xs font-black uppercase tracking-widest text-[#64748b]">
+                  {activeCategory === 'All' ? 'All Stories' : activeCategory}
+                </span>
                 <div className="flex-1 border-t border-[#e2e8f0]" />
                 <span className="text-xs text-[#94a3b8]">{posts.length} articles</span>
               </div>
 
-              {/* FULL ARTICLE GRID — ALL REMAINING */}
+              {/* FULL ARTICLE GRID */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {remainingPosts.map(post => (
                   <a key={post.slug} href={`/blog/${post.slug}`}
@@ -137,8 +172,8 @@ export default function BlogIndex() {
                       />
                       <div className="absolute top-3 left-3">
                         <span className="text-xs font-black uppercase tracking-widest px-2 py-1 rounded text-white"
-                          style={{ background: getCategoryColor(post.category || 'Analysis') }}>
-                          {post.category || 'Analysis'}
+                          style={{ background: getCategoryColor(post.category) }}>
+                          {post.category}
                         </span>
                       </div>
                     </div>
@@ -165,6 +200,43 @@ export default function BlogIndex() {
             {/* ── RIGHT SIDEBAR ── */}
             <div className="xl:col-span-3">
               <div className="sticky top-6 space-y-6">
+
+                {/* BROWSE BY CATEGORY */}
+                <div className="border border-[#e2e8f0] rounded-xl p-5">
+                  <h3 className="text-[#0f172a] text-xs font-black uppercase tracking-widest mb-4 pb-3 border-b border-[#e2e8f0]">
+                    Browse by Category
+                  </h3>
+                  <div className="space-y-1">
+                    {categories.map(cat => {
+                      const count = cat === 'All' ? allPosts.length : allPosts.filter(p => p.category === cat).length
+                      const isActive = activeCategory === cat
+                      return (
+                        <a
+                          key={cat}
+                          href={cat === 'All' ? '/blog' : `/blog?category=${encodeURIComponent(cat)}`}
+                          className={`flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors ${
+                            isActive
+                              ? 'bg-[#0f172a] text-white font-bold'
+                              : 'text-[#374151] hover:bg-[#f8f9fc] font-medium'
+                          }`}
+                        >
+                          <span className="flex items-center gap-2">
+                            {cat !== 'All' && (
+                              <span
+                                className="w-2 h-2 rounded-full flex-shrink-0"
+                                style={{ background: getCategoryColor(cat) }}
+                              />
+                            )}
+                            {cat}
+                          </span>
+                          <span className={`text-xs ${isActive ? 'text-white/70' : 'text-[#94a3b8]'}`}>
+                            {count}
+                          </span>
+                        </a>
+                      )
+                    })}
+                  </div>
+                </div>
 
                 {/* LATEST NEWS */}
                 <div className="bg-[#0d1117] rounded-xl p-5">

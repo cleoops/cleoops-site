@@ -1,7 +1,12 @@
+import AdSlot from '../components/AdSlot'
+
 export const metadata = {
   title: 'AI Tools Directory',
   description: 'Every AI tool worth knowing about — independently tested and reviewed by the Cleoops team.',
 }
+
+const AD_TOP    = process.env.NEXT_PUBLIC_ADSENSE_SLOT_BLOG_TOP    || 'PENDING'
+const AD_BOTTOM = process.env.NEXT_PUBLIC_ADSENSE_SLOT_BLOG_BOTTOM || 'PENDING'
 
 const tools = [
   { name: 'ChatGPT', by: 'OpenAI', category: 'General AI', desc: 'The most widely used AI assistant. Best for general tasks, coding, and brainstorming.', url: 'https://chat.openai.com', badge: 'Editor Pick' },
@@ -48,6 +53,11 @@ export default function ToolsPage() {
         </div>
       </div>
 
+      {/* Ad — top */}
+      <div className="max-w-6xl mx-auto px-4 py-8">
+        <AdSlot slotId={AD_TOP} />
+      </div>
+
       {/* Tools grid by category */}
       <div className="max-w-6xl mx-auto px-4 py-12">
         {categories.map(cat => (
@@ -92,6 +102,11 @@ export default function ToolsPage() {
           <p className="text-[#64748b] mb-2">More tools added weekly.</p>
           <p className="text-sm text-[#94a3b8]">Spotted a tool we should review? <a href="/contact" className="text-[#2563eb] hover:underline">Let us know.</a></p>
         </div>
+      </div>
+
+      {/* Ad — bottom */}
+      <div className="max-w-6xl mx-auto px-4 py-8">
+        <AdSlot slotId={AD_BOTTOM} />
       </div>
     </div>
   )
