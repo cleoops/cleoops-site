@@ -61,18 +61,3 @@ Western AI adoption forecasts for China are almost certainly wrong. They are bui
 If this pattern holds — subsidized adoption at the municipal level, managed risk at the central level — the Chinese AI agent economy will be three to five years ahead of Western adoption curves within 24 months. That is not a geopolitical statement. It is a business planning input.
 
 The global timeline for agentic AI deployment in business is shorter than any Western forecast currently assumes. The evidence for that claim is not a trend line. It is a 27-year-old in Shenzhen with a 100-person company and 7,000 orders.
-
----
-
-*Cleoops Editorial covers AI strategy, infrastructure, and market structure for business leaders and technology professionals.*
-
-## Frequently Asked Questions
-
-**Q: What AI agent subsidies did China announce?**
-A: Shenzhen and Wuxi launched municipal subsidy programmes in March 2026 offering cost reimbursement, tax credits, and procurement preferences for businesses deploying AI agent infrastructure. The programmes target manufacturing, logistics, and professional services sectors.
-
-**Q: Does the Chinese central government support AI agent deployment?**
-A: The central government has classified autonomous agents as a "tier 2 national security risk" requiring registration and audit in regulated sectors. Municipal governments are simultaneously subsidising deployment, reflecting different priorities at different levels of government.
-
-**Q: How does China's AI agent adoption affect Western businesses?**
-A: Chinese businesses deploying agents with government subsidies gain productivity advantages and operational learning that compounds over time. Western competitors making equivalent decisions 12-24 months later start from a disadvantage in both cost and operational experience.

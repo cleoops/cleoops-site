@@ -57,18 +57,3 @@ The question for AI is which model applies. OpenAI's current position has some s
 Murati's 1GW commitment does not answer this question. But it is the first serious test of the thesis. If TML can train and ship a model that competes at GPT-4 level or above within 18 months of its compute commitment, the cloud model — three competitors, real pricing competition, enterprise choice — becomes the more likely outcome.
 
 That is a different world for every enterprise currently locked into a single AI vendor relationship.
-
----
-
-*Cleoops Editorial covers AI strategy, infrastructure, and market structure for business leaders and technology professionals.*
-
-## Frequently Asked Questions
-
-**Q: Who is Mira Murati and why did she leave OpenAI?**
-A: Mira Murati was OpenAI's CTO from 2018 to 2024, overseeing the development of GPT-4, DALL-E, and Sora. She departed in October 2024, citing disagreements with OpenAI's commercialization pace and governance direction. She founded Thinking Machines Lab in 2025.
-
-**Q: What does 1 gigawatt of compute mean for an AI company?**
-A: 1GW of sustained compute is approximately 20x the peak power consumption of GPT-4 training. It represents the infrastructure tier required to train and serve frontier-class models competitively — the same tier as OpenAI and Google DeepMind.
-
-**Q: How does TML affect enterprise AI procurement?**
-A: A credible third frontier competitor increases negotiating leverage for enterprise buyers, compresses pricing, and makes multi-model architectures more practical. It also introduces a new safety-differentiated option for regulated industries.

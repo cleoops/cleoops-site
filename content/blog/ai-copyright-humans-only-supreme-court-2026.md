@@ -57,18 +57,3 @@ The risk is not immediate or obvious. Competitors copying AI-generated content t
 The fix is not expensive or technically complex. It is process documentation — building the habit of capturing human creative decisions as part of the AI content workflow rather than treating AI output as the starting and ending point.
 
 The Supreme Court's decision not to change this standard signals stability. The "humans only" rule is the operating environment for at least the next several years. Businesses that adapt their documentation processes now are not just protecting content they have already produced. They are building a workflow that produces protectable content going forward.
-
----
-
-*Cleoops Editorial covers AI strategy, infrastructure, and market structure for business leaders and technology professionals.*
-
-## Frequently Asked Questions
-
-**Q: Can AI-generated content be copyrighted?**
-A: Not without meaningful human creative authorship. The "humans only" standard, left intact by the Supreme Court's 2026 cert denial, requires that copyright-eligible content originate with human creative decisions, not AI generation. Content produced by AI without sufficient human creative input is not protected.
-
-**Q: What counts as "meaningful human authorship" for AI content?**
-A: Substantive creative decisions that shape the final output — selecting structure and argument, modifying voice and examples, making editorial choices about inclusion and emphasis. Prompt writing alone or light proofreading typically does not qualify. The more specific and documented the human creative decisions, the stronger the authorship claim.
-
-**Q: What should businesses do to protect AI-generated content?**
-A: Document the human creative decisions in the production process: keep detailed briefs showing creative intent, edit substantively rather than cosmetically, and use AI as a tool within a human-directed creative process rather than as the sole author of final output.
