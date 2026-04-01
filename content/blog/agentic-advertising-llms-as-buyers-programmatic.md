@@ -28,7 +28,7 @@ For brands, this creates a new and poorly understood influence problem: how do y
 
 Independent research tracking which brands and publishers appear in AI-generated answers across 26 consumer categories reveals a pattern that has significant implications for advertising strategy.
 
-LLMs do not cite based on advertising spend. The brands that appear most frequently in AI-generated recommendations are the ones with the strongest presence in the indexed content AI systems train on and retrieve from — authoritative reviews, structured comparison content, published studies, editorial coverage. The brands absent from AI recommendations are frequently those whose visibility was built primarily through paid media rather than earned authority.
+LLMs have no ad auction mechanism — citation is not influenced by advertising spend. Independent research tracking AI-generated answers across 26 consumer categories shows that which brands appear in LLM recommendations varies significantly by category and model. The factors driving citation frequency are not yet fully understood and are an active area of research. What the data shows is the pattern — which brands and publishers appear — not a confirmed causal explanation for why.
 
 The publishers that dominate AI citations are similarly revealing: free, structured, accessible content providers consistently outperform paywalled publishers. NerdWallet appears more often than the Wall Street Journal in financial recommendations. Wirecutter appears more often than most magazine review sites. The selection criterion is accessibility and structure, not authority in the traditional editorial sense.
 
